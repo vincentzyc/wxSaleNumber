@@ -1,5 +1,6 @@
 <view class="sticky-fixed">
   <view class="sticky-content">
+    <!-- 搜索输入框 -->
     <view class="search-wrap">
       <view class="flex search-wrap-change" bindtap="changeSearch">
         <text class="search-wrap-text">{{ type }}</text>
@@ -19,6 +20,7 @@
       </view>
       <van-button color="#ad0000" size="small" custom-class="search_btn" disabled="{{disableBtn}}">搜索</van-button>
     </view>
+    <!-- 搜索规则 -->
     <view class="flex align-middle search-rules">
       <view class="flex flex-center search-rule">
         <city-picker fullcity="{{false}}" bindgetcity="onGetCity"></city-picker>
@@ -37,5 +39,7 @@
         </view>
       </view>
     </view>
+    <!-- 筛选popup -->
+    <number-filter></number-filter>
   </view>
 </view>

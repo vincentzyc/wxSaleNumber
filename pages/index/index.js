@@ -12,7 +12,7 @@ Page({
   onChange(event) {
     console.log(event.detail);
     this.setData({ active: event.detail });
-    
+
   },
   // 事件处理函数
   bindViewTap() {
@@ -21,14 +21,13 @@ Page({
     })
   },
   async onLoad() {
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
-      })
-    }
-    const res = await Api.Common.getPidInfo({ pid: "23126" })
-    console.log(res);
-    app.globalData.cmData = res
-    this.setData({ bannerUrl: res.headImg })
+    wx.showLoading()
+    const cmData = await Api.Common.getPidInfo({ pid: "23126" })
+    const rulesList = await Api.Common.getRulesList()
+    app.globalData.cmData = cmData
+    app.globalData.rulesList = rulesList
+    this.setData({ bannerUrl: cmData.headImg })
+    if (rulesList?.sideRules) app.eventBus.emit('get-sideRules', rulesList.sideRules)
+    wx.hideLoading()
   }
 })

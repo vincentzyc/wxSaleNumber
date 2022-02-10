@@ -1,5 +1,8 @@
 // app.js
+import EventBus from '/event-bus/index.js';
+
 App({
+  eventBus: new EventBus(),
   onLaunch() {
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []

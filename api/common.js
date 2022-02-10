@@ -33,7 +33,7 @@ export const Common = [{
   name: "getPidInfo",  //获取pid信息
   url: "/api/goodNumberOrder/getPidInfo",
 }, {
-  name: "getRulesList",  //获取pid信息
+  name: "getRulesList",  //获取号码搜索信息
   url: "/api/index/params",
 }]
 

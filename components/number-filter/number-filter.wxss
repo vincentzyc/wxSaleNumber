@@ -1,0 +1,27 @@
+/* components/number-filter.wxss */
+.jun-rule-tag {
+	display: inline-flex;
+	font-size: 24rpx;
+	color: #111111;
+	border: 2rpx solid #111111;
+	border-radius: 6rpx;
+	padding: 4rpx 14rpx;
+	margin: 0 10rpx 10rpx 0;
+}
+.jun-rule-tag.isactive {
+	color: #ad0000;
+	border-color: #ad0000;
+}
+.bottom-btn {
+	display: flex;
+	padding: 40rpx;
+}
+.bottom-btn-item {
+	display: flex;
+	justify-content: center;
+	flex: auto;
+}
+.bottom-btn-item .bottom-van-btn {
+	height: 72rpx;
+	padding: 0 60rpx;
+}
