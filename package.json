@@ -1,0 +1,12 @@
+{
+  "name": "sale-number",
+  "version": "1.0.0",
+  "description": "SaleNumber",
+  "main": "app.js",
+  "author": "zhouyuncong",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/area-data": "^1.1.3",
+    "@vant/weapp": "^1.10.2"
+  }
+}
