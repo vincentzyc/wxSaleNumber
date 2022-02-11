@@ -1,4 +1,3 @@
-import Api from '../../api/index'
 // index.js
 // 获取应用实例
 const app = getApp()
@@ -6,7 +5,6 @@ const app = getApp()
 Page({
   data: {
     active: 0,
-    motto: 'Hello World',
     bannerUrl: ''
   },
 
@@ -21,14 +19,13 @@ Page({
       url: '../location/location'
     })
   },
-  async onLoad() {
-    wx.showLoading()
-    const cmData = await Api.Common.getPidInfo({ pid: "23126" })
-    const rulesList = await Api.Common.getRulesList()
-    app.globalData.cmData = cmData
-    app.globalData.rulesList = rulesList
-    this.setData({ bannerUrl: cmData.headImg })
-    if (rulesList?.sideRules) app.eventBus.emit('get-sideRules', rulesList.sideRules)
-    wx.hideLoading()
+  onReachBottom() {
+    app.eventBus.emit('onReachBottom')
+  },
+  onGetBanner(url) {
+    if (url) this.setData({ bannerUrl: url })
+  },
+  onLoad() {
+    app.eventBus.on('onGetBanner', url => this.onGetBanner(url))
   }
 })

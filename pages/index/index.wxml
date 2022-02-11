@@ -3,47 +3,7 @@
   <view class="banner">
     <image mode="widthFix" class="banner-img widthfull" src="{{bannerUrl}}"></image>
   </view>
-
   <jun-number-list></jun-number-list>
-
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>placeholderplaceholderplacehold</view>
-  <view>endend</view>
-  
-
   <van-tabbar active="{{ active }}" active-color="#ee0a24" inactive-color="#000" bind:change="onChange" placeholder>
     <van-tabbar-item icon="home-o">靓号中心</van-tabbar-item>
     <van-tabbar-item icon="location-o">本地靓号</van-tabbar-item>
