@@ -1,0 +1,17 @@
+<view class="indep-password-box">
+  <view class="indep-password-box__wrapper">
+    <block wx:for="{{inputLength}}" wx:key="*this">
+      <!-- input模式 -->
+      <wxs module="fn">
+        module.exports = {
+        indexOf: function(arr,val){return arr.indexOf(val)>-1 }
+        }
+      </wxs>
+      <input class="indep-password-box__item {{fn.indexOf(highlight,index)?'highlight':''}} {{inputsClass[index]}}"
+        type="number" data-index="{{index}}" catchtap="_focusInput" focus="{{inputsFocus[index]}}"
+        password="{{!showValue}}" bindinput="_input" confirm-hold="{{inputHold}}"
+        value="{{inputsValue[index]?inputsValue[index]:inputDefValue[index]}}"
+        style="width: {{inputWidth}}; height: {{inputHeight}};"></input>
+    </block>
+  </view>
+</view>

@@ -10,14 +10,39 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 
-  <view>placeholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder</view>
-  <view>placeholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder</view>
-  <view>placeholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder</view>
-  <view>placeholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder</view>
-  <view>placeholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder</view>
-  <view>placeholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder</view>
-  <view>placeholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder</view>
-  <view>placeholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>placeholderplaceholderplacehold</view>
+  <view>endend</view>
+  
 
   <van-tabbar active="{{ active }}" active-color="#ee0a24" inactive-color="#000" bind:change="onChange" placeholder>
     <van-tabbar-item icon="home-o">靓号中心</van-tabbar-item>

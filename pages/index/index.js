@@ -9,6 +9,7 @@ Page({
     motto: 'Hello World',
     bannerUrl: ''
   },
+
   onChange(event) {
     console.log(event.detail);
     this.setData({ active: event.detail });

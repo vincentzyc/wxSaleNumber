@@ -8,6 +8,7 @@
     "van-checkbox": "@vant/weapp/checkbox/index",
     "van-checkbox-group": "@vant/weapp/checkbox-group/index",
     "city-picker": "../city-picker/city-picker",
-    "number-filter": "../number-filter/number-filter"
+    "number-filter": "../number-filter/number-filter",
+    "indep-password-box": "../box-input/box-input"
   }
 }

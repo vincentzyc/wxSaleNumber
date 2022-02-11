@@ -17,6 +17,7 @@ Component({
     disableBtn: false,
     checked: false,
     focusIndex: -1,
+    inputLenth: 11,
     numArray: [{
       value: '',
       id: 'ref1',
@@ -62,6 +63,7 @@ Component({
       id: 'ref11',
       highlight: false
     }],
+    selectRules: null,
     selectCity: [],
     sortType: 0,
     sortTypeArray: [
@@ -74,6 +76,18 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    setupPasswordComplete(event) {
+      this.setData({ 'dev': event.detail })
+      console.log(this.data.dev)
+    },
+    openFilter() {
+      const childNumberFilter = this.selectComponent('#numberFilter');
+      if (childNumberFilter) childNumberFilter.showPopup()
+    },
+    onGetRules(e) {
+      console.log(e.detail);
+      this.setData({ selectRules: e.detail })
+    },
     onGetCity(e) {
       this.setData({ selectCity: e.detail })
     },

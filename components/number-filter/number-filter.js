@@ -14,21 +14,48 @@ Component({
    * 组件的初始数据
    */
   data: {
-    show: true,
+    show: false,
     sideRules: null,
     activeNames: [''],
-    typeArray: []
-  },
-  observers: {
-    typeArray: (nval) => {
-      // 在 numberA 或者 numberB 被设置时，执行这个函数
-      console.log(nval);
-    }
+    typeArray: [],
+    prettyType: "",
+    priceSegment: "",
+    operator: "",
   },
   /**
    * 组件的方法列表
    */
   methods: {
+    reset() {
+      this.setData({ typeArray: [] })
+    },
+    confirm() {
+      this.triggerEvent('getrules', {
+        prettyType: this.data.prettyType,
+        priceSegment: this.data.priceSegment,
+        operator: this.data.operator,
+      })
+      this.onClose()
+    },
+    formatParam() {
+      if (this.data.typeArray.length > 0) {
+        this.data.operator = this.data.typeArray.filter((val => val.indexOf('中国') !== -1)).join(',')
+        this.data.priceSegment = this.data.typeArray.filter((val => val.indexOf('~') !== -1 || val.indexOf('以及以上') !== -1)).join(',')
+        this.data.prettyType = this.data.typeArray.filter((val => val.indexOf('中国') === -1 && val.indexOf('~') === -1 && val.indexOf('以及以上') === -1)).join(',')
+        this.setData({
+          prettyType: this.data.prettyType,
+          priceSegment: this.data.priceSegment,
+          operator: this.data.operator
+        })
+      } else {
+        this.setData({
+          prettyType: "",
+          priceSegment: "",
+          operator: ""
+        })
+      }
+      this.confirm()
+    },
     selectRules(e) {
       const val = e.currentTarget.dataset.tagvalue;
       if (this.data.typeArray.includes(val)) {
@@ -49,7 +76,6 @@ Component({
   created() {
     app.eventBus.on('get-sideRules', sideRules => {
       if (sideRules && !this.data.sideRules) {
-        console.log('111', sideRules);
         sideRules.splice(0, 1)
         this.setData({
           sideRules: sideRules,
@@ -65,7 +91,6 @@ Component({
         sideRules: app.globalData?.rulesList?.sideRules,
         activeNames: sideRules.map(val => val.label)
       })
-      console.log('222', app.globalData);
     }
   }
 })

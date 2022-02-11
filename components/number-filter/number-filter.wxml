@@ -1,30 +1,23 @@
-<!--components/number-filter.wxml-->
 <view>
-  <!-- <text>components/number-filter.wxml</text> -->
   <van-popup show="{{ show }}" position="right" custom-style="width:80%;height: 100%;" bind:close="onClose">
     <van-collapse value="{{ activeNames }}">
       <van-collapse-item wx:for="{{sideRules}}" wx:key="value" title="{{item.label}}" name="{{item.value}}">
         <wxs module="fn">
           module.exports = {
-          includes: function(arr,val){
-          return arr.includes(val);
-          },
-          random: function(){
-            return Math.random();
-          }
+          indexOf: function(arr,val){return arr.indexOf(val)>-1 }
           }
         </wxs>
-        <view class="jun-rule-tag {{fn.random()>0.5?'isactive':''}}" wx:for="{{item.children}}"
+        <view class="jun-rule-tag {{fn.indexOf(typeArray,subItem.value)>0.5?'isactive':''}}" wx:for="{{item.children}}"
           wx:key="value" wx:for-item="subItem" bindtap="selectRules" data-tagvalue="{{subItem.value}}">{{subItem.label}}
         </view>
       </van-collapse-item>
     </van-collapse>
     <view class="bottom-btn">
       <view class="bottom-btn-item">
-        <van-button custom-class="bottom-van-btn" type="primary" plain color="#ad0000">重置</van-button>
+        <van-button custom-class="bottom-van-btn" type="primary" plain color="#ad0000" bindtap="reset">重置</van-button>
       </view>
       <view class="bottom-btn-item">
-        <van-button custom-class="bottom-van-btn" class="flex-auto" type="primary" color="#ad0000">筛选</van-button>
+        <van-button custom-class="bottom-van-btn" class="flex-auto" type="primary" color="#ad0000" bindtap="formatParam">筛选</van-button>
       </view>
     </view>
   </van-popup>

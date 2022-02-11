@@ -14,9 +14,7 @@
         </van-checkbox>
       </view>
       <view class="flex input-nums" wx:else>
-        <input type="number" maxlength="1" class="single-num {{item.highlight?'highlight':''}}" wx:key="id"
-          focus="{{focusIndex == index}}" data-input-index="{{index}}" bindinput="inputListener"
-          wx:for="{{numArray}}" />
+        <indep-password-box id="passwordBox" bind:complete="setupPasswordComplete"></indep-password-box>
       </view>
       <van-button color="#ad0000" size="small" custom-class="search_btn" disabled="{{disableBtn}}">搜索</van-button>
     </view>
@@ -33,13 +31,13 @@
         </view>
       </picker>
       <view class="flex flex-center search-rule">
-        <view style="display: flex;">
+        <view style="display: flex;" bindtap="openFilter">
           <view class="txtover-1">靓号筛选</view>
           <van-icon name="arrow-down" style="margin-left:5px" />
         </view>
       </view>
     </view>
     <!-- 筛选popup -->
-    <number-filter></number-filter>
+    <number-filter id="numberFilter" bindgetrules="onGetRules"></number-filter>
   </view>
 </view>

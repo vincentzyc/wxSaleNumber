@@ -4,6 +4,7 @@
 	right: 0;
 	left: 0;
 	z-index: 99;
+  background-color: #fff;
 }
 
 .search-wrap {
@@ -44,15 +45,6 @@
 .search_btn {
 	font-size: 28rpx;
 	height: 68rpx;
-}
-.single-num {
-	text-align: center;
-	width: 9.1%;
-	height: 100%;
-	border-right: 1px solid rgba(150, 150, 150, 1);
-}
-.single-num.highlight {
-	background-color: #fff5e2
 }
 .search-rules {
 	padding: 20rpx;
