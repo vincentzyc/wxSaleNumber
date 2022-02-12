@@ -27,11 +27,13 @@ Component({
     numDataList: [],
     loadMore: true,
     loading: false,
+    loadAll: false
   },
   methods: {
     async onReachBottom() {
       console.log("到底啦~")
       if (this.data.loading) return
+      if (this.data.loadAll) return
       this.getNumPool(this.data.pageIndex + 1)
     },
     async getNumPool(pageIndex = 1) {
@@ -40,6 +42,7 @@ Component({
         pageIndex: pageIndex,
         loadMore: true,
         loading: true,
+        loadAll: false,
         numDataList: newList
       })
       const param = {
@@ -66,13 +69,14 @@ Component({
         this.setData({
           loadMore: true,
           loading: false,
+          loadAll: false,
           numDataList: this.data.numDataList
         })
       } else {
         this.setData({
           loadMore: false,
-          loading: false,
-          numDataList: []
+          loadAll: true,
+          loading: false
         })
       }
     },
