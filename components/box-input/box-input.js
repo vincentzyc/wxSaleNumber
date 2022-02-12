@@ -53,6 +53,9 @@ Component({
   },
 
   methods: {
+    reset() {
+      this._init()
+    },
     _init() {
       var inputsClass = []
       var inputsValue = []
@@ -67,7 +70,6 @@ Component({
         inputsValue: inputsValue,
         inputsFocus: inputsFocus,
       })
-      console.log(this.data.inputsClass)
     },
     // 点击伪装的input时，让隐藏的input获得焦点
     _focusInput(event) {
@@ -87,7 +89,8 @@ Component({
       this.setData({
         inputsValue: inputsValue
       })
-      console.log(this.data.inputsValue)
+      this._inputComplete(inputsValue)
+
       var emptyA = this.data.inputsValue.filter(function (value, index) {
         return value == '';
       })
@@ -105,7 +108,6 @@ Component({
         var ind = event.currentTarget.dataset.index
       }
 
-      console.log(this.data.inputLength)
       if (ind >= this.data.inputLength) {
         ind = this.data.inputLength - 1
       }
@@ -134,10 +136,15 @@ Component({
 
     },
 
-    // 派发完成事件
+    // 派发全部输入完成事件
 
     _complete(value) {
       this.triggerEvent('complete', value)
+    },
+    // 派发单个输入事件
+
+    _inputComplete(value) {
+      this.triggerEvent('inputComplete', value)
     },
 
     // 提供给外部调用的方法，显示/隐藏密码。接收一个参数，可以显性修改展示的状态。
