@@ -7,10 +7,8 @@
         <van-icon name="exchange" />
       </view>
       <view class="flex flex-auto align-middle input-wrap" wx:if="{{type === '模糊'}}">
-        <input value="{{ inputNum }}" placeholder="请输入您喜欢的号码" border="{{ false }}" bindinput="onNumInput"
-          class="long-input" type="number" maxlength="11" />
-        <van-checkbox value="{{ checked }}" shape="square" bind:change="onChangeCheckbox" icon-size="14px"
-          label-class="search-wrap-checklabel" checked-color="#ad0000">后四位
+        <input value="{{ inputNum }}" placeholder="请输入您喜欢的号码" border="{{ false }}" bindinput="onNumInput" class="long-input" type="number" maxlength="11" />
+        <van-checkbox value="{{ checked }}" shape="square" bind:change="onChangeCheckbox" icon-size="14px" label-class="search-wrap-checklabel" checked-color="#ad0000">后四位
         </van-checkbox>
       </view>
       <view class="flex input-nums" wx:else>
@@ -23,8 +21,7 @@
       <view class="flex flex-center search-rule">
         <city-picker fullcity="{{false}}" bindgetcity="onGetCity"></city-picker>
       </view>
-      <picker class="flex flex-center search-rule" mode="selector" range-key="name" bindchange="bindSortTypeChange"
-        value="{{sortType}}" range="{{sortTypeArray}}">
+      <picker class="flex flex-center search-rule" mode="selector" range-key="name" bindchange="bindSortTypeChange" value="{{sortType}}" range="{{sortTypeArray}}">
         <view style="display: flex;">
           <view class="txtover-1">{{sortTypeArray[sortType].name}}</view>
           <van-icon name="arrow-down" style="margin-left:5px" />
@@ -48,8 +45,7 @@
       <view class="red-tag">靓</view>
       <view class="num-info">
         <view class="num-char">
-          <view wx:for="{{item.item}}" wx:for-item="subItem" wx:key="*this"
-            style="color: {{subItem.highlight?'#ad0000':''}}">
+          <view wx:for="{{item.item}}" wx:for-item="subItem" wx:key="*this" style="color: {{subItem.highlight?'#ad0000':''}}">
             {{subItem.numChar}}</view>
         </view>
         <view class="color-gary area-text">{{item.areaInfo}}</view>
@@ -61,5 +57,5 @@
     </view>
   </view>
 </view>
-<view class="loading-text" hidden="{{!loadMore}}">靓号加载中...</view>
-<view class="loading-text" hidden="{{!loadAll}}">暂无更多靓号</view>
+<view class="loading-text" wx:if="{{loadMore}}">靓号加载中...</view>
+<view class="loading-text" wx:else>暂无更多靓号</view>
