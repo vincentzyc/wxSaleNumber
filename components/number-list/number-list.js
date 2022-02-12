@@ -26,12 +26,12 @@ Component({
     pageSize: 12,
     numDataList: [],
     loadMore: true,
-    loadAll: false
+    loading: false,
   },
   methods: {
     async onReachBottom() {
       console.log("到底啦~")
-      if (this.data.loadMore) return
+      if (this.data.loading) return
       this.getNumPool(this.data.pageIndex + 1)
     },
     async getNumPool(pageIndex = 1) {
@@ -39,7 +39,7 @@ Component({
       this.setData({
         pageIndex: pageIndex,
         loadMore: true,
-        loadAll: false,
+        loading: true,
         numDataList: newList
       })
       const param = {
@@ -53,7 +53,7 @@ Component({
         searchBody: {
           isTail: this.data.checked ? 1 : 0,
           type: this.data.type === JingZhun ? 1 : 0,
-          content: this.data.type === JingZhun ? this.data.boxInputNum.join('_') : this.data.inputNum,
+          content: this.data.type === JingZhun ? this.data.boxInputNum?.map(v => v === '' ? '_' : v).join('') : this.data.inputNum,
         },
         sortType: this.data.sortType,
         hotLabel: "", //热搜
@@ -64,20 +64,20 @@ Component({
       if (Array.isArray(res.numItem) && res.numItem.length > 0) {
         this.data.numDataList.push(...res.numItem)
         this.setData({
-          loadMore: false,
-          loadAll: false,
+          loadMore: true,
+          loading: false,
           numDataList: this.data.numDataList
         })
       } else {
         this.setData({
           loadMore: false,
-          loadAll: true,
+          loading: false,
           numDataList: []
         })
       }
     },
     handleSearch() {
-      if (this.data.loadMore) return
+      if (this.data.loading) return
       this.getNumPool()
     },
     boxInputComplete(event) {
