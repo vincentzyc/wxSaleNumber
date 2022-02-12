@@ -74,7 +74,7 @@ Component({
     },
   },
   created() {
-    app.eventBus.on('get-sideRules', sideRules => {
+    app.eventBus.on('onGetSideRules', sideRules => {
       if (sideRules && !this.data.sideRules) {
         sideRules.splice(0, 1)
         this.setData({
