@@ -1,68 +1,19 @@
-// pages/NumberList.js
+import Api from '../../api/index'
+
+const app = getApp()
+
+const JingZhun = "精准"
+const MoHu = "模糊"
+
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-
-  },
-
-  /**
-   * 组件的初始数据
-   */
   data: {
-    value: '',
-    type: "精准",
+    type: MoHu,
     inputNum: "",
+    boxInputNum: [],
     disableBtn: false,
     checked: false,
     focusIndex: -1,
     inputLenth: 11,
-    numArray: [{
-      value: '',
-      id: 'ref1',
-      highlight: false
-    }, {
-      value: '',
-      id: 'ref2',
-      highlight: false
-    }, {
-      value: '',
-      id: 'ref3',
-      highlight: false
-    }, {
-      value: '',
-      id: 'ref4',
-      highlight: true
-    }, {
-      value: '',
-      id: 'ref5',
-      highlight: true
-    }, {
-      value: '',
-      id: 'ref6',
-      highlight: true
-    }, {
-      value: '',
-      id: 'ref7',
-      highlight: true
-    }, {
-      value: '',
-      id: 'ref8',
-      highlight: false
-    }, {
-      value: '',
-      id: 'ref9',
-      highlight: false
-    }, {
-      value: '',
-      id: 'ref10',
-      highlight: false
-    }, {
-      value: '',
-      id: 'ref11',
-      highlight: false
-    }],
     selectRules: null,
     selectCity: [],
     sortType: 0,
@@ -70,65 +21,110 @@ Component({
       { name: "默认", id: 0 },
       { name: "价格由高到低", id: 1 },
       { name: "价格由低到高", id: 2 }
-    ]
+    ],
+    pageIndex: 1,
+    pageSize: 12,
+    numDataList: [],
+    loadMore: true,
+    loadAll: false
   },
-  /**
-   * 组件的方法列表
-   */
   methods: {
-    setupPasswordComplete(event) {
-      this.setData({ 'dev': event.detail })
-      console.log(this.data.dev)
+    async onReachBottom() {
+      console.log("到底啦~")
+      if (this.data.loadMore) return
+      this.getNumPool(this.data.pageIndex + 1)
+    },
+    async getNumPool(pageIndex = 1) {
+      const newList = pageIndex === 1 ? [] : this.data.numDataList
+      this.setData({
+        pageIndex: pageIndex,
+        loadMore: true,
+        loadAll: false,
+        numDataList: newList
+      })
+      const param = {
+        pageIndex: pageIndex,
+        pageSize: this.data.pageSize,
+        province: this.data.selectCity?.[0] || "",
+        city: this.data.selectCity?.[1] || "",
+        prettyType: this.data.selectRules?.prettyType || "",    //规则
+        operator: this.data.selectRules?.operator || "",      //规则-运营商
+        priceSegment: this.data.selectRules?.priceSegment || "",  //规则-价格段
+        searchBody: {
+          isTail: this.data.checked ? 1 : 0,
+          type: this.data.type === JingZhun ? 1 : 0,
+          content: this.data.type === JingZhun ? this.data.boxInputNum.join('_') : this.data.inputNum,
+        },
+        sortType: this.data.sortType,
+        hotLabel: "", //热搜
+        vendorId: this.cmData.vendorId
+      }
+      console.log(param);
+      const res = await Api.Common.getNumPool(param)
+      if (Array.isArray(res.numItem) && res.numItem.length > 0) {
+        this.data.numDataList.push(...res.numItem)
+        this.setData({
+          loadMore: false,
+          loadAll: false,
+          numDataList: this.data.numDataList
+        })
+      } else {
+        this.setData({
+          loadMore: false,
+          loadAll: true,
+          numDataList: []
+        })
+      }
+    },
+    handleSearch() {
+      if (this.data.loadMore) return
+      this.getNumPool()
+    },
+    boxInputComplete(event) {
+      console.log(event.detail);
+      this.setData({ boxInputNum: event.detail })
     },
     openFilter() {
       const childNumberFilter = this.selectComponent('#numberFilter');
       if (childNumberFilter) childNumberFilter.showPopup()
     },
     onGetRules(e) {
-      console.log(e.detail);
       this.setData({ selectRules: e.detail })
+      this.getNumPool()
     },
     onGetCity(e) {
       this.setData({ selectCity: e.detail })
+      this.getNumPool()
     },
     bindSortTypeChange(e) {
       this.setData({ sortType: e.detail.value })
-    },
-    inputListener(event) {
-      let currentIndex = event.currentTarget.dataset.inputIndex
-      this.data.numArray[currentIndex].value = event.detail.value
-      if (event.detail.value != '') {
-        this.setData({
-          numArray: this.data.numArray,
-          focusIndex: currentIndex + 1
-        })
-      } else {
-        this.setData({
-          numArray: this.data.numArray,
-          focusIndex: currentIndex - 1
-        })
-      }
+      this.getNumPool()
     },
     onChangeCheckbox(event) {
-      this.setData({
-        checked: event.detail,
-      });
+      this.setData({ checked: event.detail });
     },
     onNumInput(event) {
-      console.log(event.detail);
-      this.setData({
-        inputNum: event.detail.value,
-      });
+      this.setData({ inputNum: event.detail.value });
     },
     changeSearch() {
-      if (this.data.type === "模糊") {
-        for (let i = 0; i < this.data.numArray.length; i++) {
-          this.data.numArray[i].value = "";
-        }
-        this.setData({ type: "精准", numArray: this.data.numArray, focusIndex: 0 })
+      if (this.data.type === MoHu) {
+        if (!this.boxInput) this.boxInput = this.selectComponent('#boxInput')
+        if (this.boxInput) this.boxInput.reset()
+        this.setData({ type: JingZhun })
       } else {
-        this.setData({ type: "模糊", inputNum: '', checked: false })
+        this.setData({ type: MoHu, inputNum: '', checked: false })
       }
-    },
+    }
+  },
+  async created() {
+    app.eventBus.on('onReachBottom', () => this.onReachBottom())
+    wx.showLoading()
+    this.cmData = await Api.Common.getPidInfo({ pid: "23126" })
+    this.rulesList = await Api.Common.getRulesList()
+    wx.hideLoading()
+    app.globalData.cmData = this.cmData
+    if (this.cmData?.headImg) app.eventBus.emit('onGetBanner', this.cmData.headImg)
+    if (this.rulesList?.sideRules) app.eventBus.emit('onGetSideRules', this.rulesList.sideRules)
+    this.getNumPool()
   }
 })
