@@ -6,7 +6,7 @@
         <text class="search-wrap-text">{{ type }}</text>
         <van-icon name="exchange" />
       </view>
-      <view class="flex flex-auto align-middle input-wrap" wx:if="{{type === '精准'}}">
+      <view class="flex flex-auto align-middle input-wrap" wx:if="{{type === '模糊'}}">
         <input value="{{ inputNum }}" placeholder="请输入您喜欢的号码" border="{{ false }}" bindinput="onNumInput"
           class="long-input" type="number" maxlength="11" />
         <van-checkbox value="{{ checked }}" shape="square" bind:change="onChangeCheckbox" icon-size="14px"
@@ -14,9 +14,9 @@
         </van-checkbox>
       </view>
       <view class="flex input-nums" wx:else>
-        <indep-password-box id="passwordBox" bind:complete="setupPasswordComplete"></indep-password-box>
+        <box-input id="boxInput" bind:inputComplete="boxInputComplete"></box-input>
       </view>
-      <van-button color="#ad0000" size="small" custom-class="search_btn" disabled="{{disableBtn}}">搜索</van-button>
+      <van-button color="#ad0000" size="small" custom-class="search_btn" disabled="{{disableBtn}}" bindtap="handleSearch">搜索</van-button>
     </view>
     <!-- 搜索规则 -->
     <view class="flex align-middle search-rules">
@@ -41,3 +41,25 @@
     <number-filter id="numberFilter" bindgetrules="onGetRules"></number-filter>
   </view>
 </view>
+
+<view class="num-waterfall">
+  <view class="num-wrap" wx:for="{{numDataList}}" wx:key="id">
+    <view class="num-item">
+      <view class="red-tag">靓</view>
+      <view class="num-info">
+        <view class="num-char">
+          <view wx:for="{{item.item}}" wx:for-item="subItem" wx:key="*this"
+            style="color: {{subItem.highlight?'#ad0000':''}}">
+            {{subItem.numChar}}</view>
+        </view>
+        <view class="color-gary area-text">{{item.areaInfo}}</view>
+      </view>
+      <view class="price">
+        <view class="color-orange">￥{{item.salePrice}}</view>
+        <view class="color-gary old-price">￥{{item.marketPrice}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="loading-text" hidden="{{!loadMore}}">靓号加载中...</view>
+<view class="loading-text" hidden="{{!loadAll}}">暂无更多靓号</view>
