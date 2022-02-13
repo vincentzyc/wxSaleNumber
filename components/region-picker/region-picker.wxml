@@ -1,0 +1,8 @@
+<picker mode="multiSelector" name="selectCity" bindcolumnchange="pickerColumnMulti" bindchange="pickerChange"
+  value="{{multiIndex}}" range="{{multiArr}}">
+  <view style="display: flex;">
+    <view wx:if="{{multiStr.length > 0}}" class="txtover-1">{{multiStr}}</view>
+    <view wx:else class="txtover-1">选择归属地</view>
+    <van-icon name="arrow-down" style="margin-left:5px" />
+  </view>
+</picker>
