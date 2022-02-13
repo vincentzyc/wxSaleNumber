@@ -246,9 +246,44 @@
 .bg000 {
 	background-color: #000000;
 }
+.bgred {
+	background-color: #cf2726;
+}
+.bgffa51c{
+  background-color: #ffa51c;
+}
 .c666 {
 	color: #666
 }
 .c999 {
 	color: #999
+}
+.cred {
+	color: #cf2726;
+}
+
+.fs12 {
+	font-size: 24rpx;
+}
+.text-center {
+	text-align: center;
+}
+
+.mg10 {
+	margin: 20rpx;
+}
+.mg12 {
+	margin: 24rpx;
+}
+.mg15 {
+	margin: 30rpx;
+}
+.mg-b10 {
+	margin-bottom: 20rpx;
+}
+.mg-l15 {
+	margin-bottom: 30rpx;
+}
+.bold {
+	font-weight: bold;
 }
