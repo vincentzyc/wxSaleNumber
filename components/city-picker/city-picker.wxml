@@ -2,7 +2,7 @@
   value="{{multiIndex}}" range="{{multiArr}}">
   <view style="display: flex;">
     <view wx:if="{{multiStr.length > 0}}" class="txtover-1">{{multiStr}}</view>
-    <view wx:else class="txtover-1">选择归属地</view>
-    <van-icon name="arrow-down" style="margin-left:5px" />
+    <view wx:else class="txtover-1 c999">请选择城市</view>
+    <van-icon name="arrow-down" style="margin-left:5px" color="#999" />
   </view>
 </picker>
