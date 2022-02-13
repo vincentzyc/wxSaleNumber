@@ -75,6 +75,7 @@ Component({
   },
   created() {
     app.eventBus.on('onGetSideRules', sideRules => {
+      console.log(111);
       if (sideRules && !this.data.sideRules) {
         sideRules.splice(0, 1)
         this.setData({
@@ -83,14 +84,5 @@ Component({
         })
       }
     });
-  },
-  ready() {
-    if (app.globalData?.rulesList?.sideRules && !this.data.sideRules) {
-      app.globalData.rulesList.sideRules.splice(0, 1)
-      this.setData({
-        sideRules: app.globalData?.rulesList?.sideRules,
-        activeNames: sideRules.map(val => val.label)
-      })
-    }
   }
 })

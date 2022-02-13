@@ -12,7 +12,7 @@ Page({
   onChange(event) {
     console.log(event.detail);
     this.setData({ active: event.detail });
-    
+
   },
   // 事件处理函数
   bindViewTap() {
@@ -28,7 +28,7 @@ Page({
     }
     const res = await Api.Common.getPidInfo({ pid: "23126" })
     console.log(res);
-    app.globalData.cmData = res
+    app.setGlobal('cmData', res)
     this.setData({ bannerUrl: res.headImg })
   }
 })

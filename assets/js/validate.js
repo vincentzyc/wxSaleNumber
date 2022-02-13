@@ -14,7 +14,7 @@ const ruleList = {
     if (/^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(value)) return true;
     return '请输入正确的手机号码'
   },
-  city: value => {
+  selectCity: value => {
     if (!Array.isArray(value)) return '请选择城市';
     if (value.length === 0) return '请选择城市';
     return true

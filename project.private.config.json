@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -15,6 +16,20 @@
           "name": "",
           "pathName": "pages/form/form",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/index",
+          "query": "pid=23126",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/payconfirm/payconfirm",
+          "query": "orderCode=GN20220213172205144219008",
           "scene": null,
           "launchMode": "default"
         }

@@ -32,7 +32,7 @@ Component({
   methods: {
     handleSelect(e) {
       const selectNumber = e.currentTarget.dataset.selectNumber
-      app.globalData.selectNumber = selectNumber
+      app.setGlobal('selectNumber', selectNumber)
       wx.navigateTo({
         url: '../../pages/form/form'
       })
@@ -129,10 +129,10 @@ Component({
   async created() {
     app.eventBus.on('onReachBottom', () => this.onReachBottom())
     wx.showLoading()
-    this.cmData = await Api.Common.getPidInfo({ pid: "23126" })
+    this.cmData = await Api.Common.getPidInfo({ pid: app.getGlobal('pid') })
     this.rulesList = await Api.Common.getRulesList()
     wx.hideLoading()
-    app.globalData.cmData = this.cmData
+    app.setGlobal('cmData', this.cmData)
     if (this.cmData?.headImg) app.eventBus.emit('onGetBanner', this.cmData.headImg)
     if (this.rulesList?.sideRules) app.eventBus.emit('onGetSideRules', this.rulesList.sideRules)
     this.getNumPool()

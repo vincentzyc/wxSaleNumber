@@ -1,0 +1,2 @@
+<!--pages/payconfirm/payconfirm.wxml-->
+<text>orderCode: {{orderCode}}</text>

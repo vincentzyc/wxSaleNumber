@@ -1,9 +1,10 @@
-export const CommonBaseUrl = "https://number.junpinclub.com"
+// export const CommonBaseUrl = "https://number.junpinclub.com"
+export const CommonBaseUrl = "http://test-number.junpinclub.com"
 
 export const Common = [{
   name: "getSmsCode", //方法名
   url: "/api/goodNumber/getSmsCode", //接口路径
-  backType: 'allData'
+  getAllData: true
 }, {
   name: "getNumPool", //号池查询
   url: "/api/numberPool/queryPool", //接口路径
@@ -13,7 +14,7 @@ export const Common = [{
 }, {
   name: "addOrder",  //下单
   url: "/api/goodNumber/addOrder",
-  backType: 'allData'
+  getAllData: true
 }, {
   name: "getOrderDetail",  //获取付款订单详细
   url: "/api/goodNumberOrder/detail",
