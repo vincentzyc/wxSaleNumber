@@ -5,7 +5,7 @@
   </view>
   <jun-number-list></jun-number-list>
   <van-tabbar active="{{ active }}" active-color="#ee0a24" inactive-color="#000" bind:change="onChange" placeholder>
-    <van-tabbar-item icon="home-o">靓号中心</van-tabbar-item>
+    <van-tabbar-item icon="home-o">靓号甄选</van-tabbar-item>
     <van-tabbar-item icon="location-o">本地靓号</van-tabbar-item>
     <van-tabbar-item icon="records">选号须知</van-tabbar-item>
     <van-tabbar-item icon="orders-o">订单查询</van-tabbar-item>
