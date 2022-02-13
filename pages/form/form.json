@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-field": "@vant/weapp/field/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "city-picker": "/components/city-picker/city-picker"
+  },
+  "navigationBarBackgroundColor": "#b7120f",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "号码详情"
+}

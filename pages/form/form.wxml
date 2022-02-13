@@ -1,0 +1,74 @@
+<!--pages/form/form.wxml-->
+<view class="content_wrap">
+  <view class="top-numBanner">
+    <view class="top-numBanner-num">{{selectNum.num}}</view>
+    <view class="top-numBanner-txt">{{selectNum.areaInfo}}</view>
+  </view>
+  <view class="numinfo-wrap">
+    <view class="numinfo-top">
+      <view class="numinfo-top-item" use-slot>
+        <view class="price_title">原价</view>
+        <view class="price-font c666" style="text-decoration: line-through">
+          ￥{{selectNum.marketPrice}}
+        </view>
+      </view>
+      <view class="numinfo-top-item" use-slot>
+        <view class="price_title">销售价</view>
+        <view class="price-font cred">￥{{selectNum.salePrice}}</view>
+      </view>
+      <view class="numinfo-top-item" use-slot>
+        <view class="price_title">预存</view>
+        <view class="{{selectNum.prestore==='0'?'price-font color-gary':'price-font color-red'}}">
+          ￥{{selectNum.prestore}}
+        </view>
+      </view>
+    </view>
+    <view class="num-info">
+      <view class="text-wrap">
+        <view wx:if="{{selectNum.chargesStr}}" class="price-tip">资费说明</view>
+        <view>{{selectNum.chargesStr}}</view>
+        <view wx:if="{{selectNum.preferential}}" class="price-tip">优惠政策</view>
+        <view>{{selectNum.preferential}}</view>
+        <view>号码购买人数较多，在库状态请以人工后台查询为准，请留意客服电话。</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="fs12 mg15">
+    <view class="bold">配送信息<text class="cred">（云南、新疆、西藏不发货）</text></view>
+  </view>
+
+  <view class="form-wrap">
+    <van-cell-group>
+      <van-field value="{{ form.name }}" required label="姓名" title-width="5em" placeholder="请输入姓名" maxlength="20"
+        input-align="right" placeholder-style="color:#999" bind:change="onChangeName" />
+      <van-field value="{{ form.contactNo }}" type="tel" required label="手机号" maxlength="11" title-width="5em"
+        placeholder="请输入手机号" placeholder-style="color:#999" input-align="right" bind:change="onChangePhone" />
+      <van-field value="{{ form.city }}" required label="城市" title-width="5em" placeholder="请选择城市"
+        placeholder-style="color:#999" input-align="right">
+        <view slot="input" class="flex justify-end widthfull">
+          <city-picker bindgetcity="onGetCity"></city-picker>
+        </view>
+      </van-field>
+      <van-field value="{{ form.address }}" required label="收货地址" title-width="5em" placeholder="请输入收货地址"
+        input-align="right" placeholder-style="color:#999" bind:change="onChangeAddress" />
+      <view class="flex align-middle mg10 fs12 mg-l15">
+        <van-checkbox value="{{ form.checked }}" icon-size="20px" bind:change="onChangeCheckbox" class="flex-none" />
+        <view class="flex-auto">
+          <text>我已阅读并同意</text>
+          <text class="agr-text" bindtap="showAgr" data-agrLink="{{item.link}}" wx:for="{{agrList}}"
+            wx:key="name">{{item.name}}</text>
+        </view>
+      </view>
+    </van-cell-group>
+  </view>
+  <view class="info-img">
+    <image mode="widthFix" class="flex widthfull" src="/assets/images/form1.png"></image>
+    <image mode="widthFix" class="flex widthfull" src="/assets/images/form2.png"></image>
+    <image mode="widthFix" class="flex widthfull" src="/assets/images/form3.png"></image>
+  </view>
+  <view class="btn-bottom-wrap">
+    <view class="btn-bottom bgffa51c">金额￥{{selectNum.salePrice}}</view>
+    <view class="btn-bottom bgred" bindtap="submit">立即提交</view>
+  </view>
+</view>

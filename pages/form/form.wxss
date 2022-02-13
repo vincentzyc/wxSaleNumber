@@ -1,0 +1,100 @@
+/* pages/form/form.wxss */
+
+.content_wrap {
+	width: 100%;
+	min-height: 100vh;
+	position: relative;
+	background-color: #f4f4f4;
+}
+.content_wrap .top-numBanner {
+	background-color: #b7120f;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+	padding: 30rpx 0 70rpx 0;
+}
+.content_wrap .top-numBanner .top-numBanner-num {
+	font-size: 40rpx;
+	font-weight: bold;
+	margin: 5rpx 0;
+}
+.content_wrap .top-numBanner .top-numBanner-txt {
+	margin: 0;
+	font-size: 25rpx;
+}
+.numinfo-wrap {
+	background-color: #fff;
+	border-radius: 30rpx;
+	margin: -40rpx 20rpx 20rpx 20rpx;
+	overflow: hidden;
+}
+.numinfo-wrap .numinfo-top {
+	display: flex;
+	padding: 12rpx 12rpx 6rpx 12rpx;
+}
+.numinfo-wrap .numinfo-top-item {
+	background-color: #feedeb;
+	flex: auto;
+	text-align: center;
+	margin: 10rpx;
+	border-radius: 12rpx;
+	font-weight: bold;
+	padding: 10rpx 0;
+}
+.numinfo-wrap .numinfo-top-item .price_title {
+	margin: 0;
+	font-size: 26rpx;
+	color: #000;
+}
+.numinfo-wrap .numinfo-top-item .price-font {
+	margin: 10rpx 0 0 0;
+	font-size: 30rpx;
+}
+
+.content_wrap .num-info {
+	width: 100%;
+}
+.content_wrap .num-info .text-wrap {
+	font-size: 22rpx;
+	line-height: 30rpx;
+	margin: 20rpx
+}
+.numinfo-wrap .price-tip {
+	text-align: center;
+	font-size: 24rpx;
+	margin-top: 8rpx;
+	margin-bottom: 16rpx;
+	font-weight: bold;
+	color: #cf2726;
+}
+
+.form-wrap {
+	background-color: #fff;
+	border-radius: 30rpx;
+	margin: 20rpx;
+	overflow: hidden;
+}
+.agr-text {
+	color: #2174ff;
+  line-height: 40rpx;
+  
+}
+.info-img {
+	margin-bottom: 90rpx;
+}
+.btn-bottom-wrap {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 90rpx;
+	display: flex;
+}
+.btn-bottom {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 28rpx;
+	width: 50%;
+	color: #fff;
+}
