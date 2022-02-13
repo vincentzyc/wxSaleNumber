@@ -7,7 +7,7 @@
     "van-field": "@vant/weapp/field/index",
     "van-checkbox": "@vant/weapp/checkbox/index",
     "van-checkbox-group": "@vant/weapp/checkbox-group/index",
-    "city-picker": "../city-picker/city-picker",
+    "region-picker": "../region-picker/region-picker",
     "number-filter": "../number-filter/number-filter",
     "box-input": "../box-input/box-input"
   }

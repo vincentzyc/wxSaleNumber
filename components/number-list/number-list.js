@@ -30,6 +30,13 @@ Component({
     loadAll: false
   },
   methods: {
+    handleSelect(e) {
+      const selectNumber = e.currentTarget.dataset.selectNumber
+      app.globalData.selectNumber = selectNumber
+      wx.navigateTo({
+        url: '../../pages/form/form'
+      })
+    },
     async onReachBottom() {
       console.log("到底啦~")
       if (this.data.loading) return
@@ -85,7 +92,6 @@ Component({
       this.getNumPool()
     },
     boxInputComplete(event) {
-      console.log(event.detail);
       this.setData({ boxInputNum: event.detail })
     },
     openFilter() {

@@ -22,7 +22,7 @@
     <!-- 搜索规则 -->
     <view class="flex align-middle search-rules">
       <view class="flex flex-center search-rule">
-        <city-picker fullcity="{{false}}" bindgetcity="onGetCity"></city-picker>
+        <region-picker fullcity="{{false}}" bindgetcity="onGetCity"></region-picker>
       </view>
       <picker class="flex flex-center search-rule" mode="selector" range-key="name" bindchange="bindSortTypeChange"
         value="{{sortType}}" range="{{sortTypeArray}}">
@@ -44,7 +44,7 @@
 </view>
 
 <view class="num-waterfall">
-  <view class="num-wrap" wx:for="{{numDataList}}" wx:key="id">
+  <view class="num-wrap" wx:for="{{numDataList}}" wx:key="id" bindtap="handleSelect" data-select-number="{{item}}">
     <view class="num-item">
       <view class="red-tag">靓</view>
       <view class="num-info">
