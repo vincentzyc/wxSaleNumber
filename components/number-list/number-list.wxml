@@ -7,21 +7,25 @@
         <van-icon name="exchange" />
       </view>
       <view class="flex flex-auto align-middle input-wrap" wx:if="{{type === '模糊'}}">
-        <input value="{{ inputNum }}" placeholder="请输入您喜欢的号码" border="{{ false }}" bindinput="onNumInput" class="long-input" type="number" maxlength="11" />
-        <van-checkbox value="{{ checked }}" shape="square" bind:change="onChangeCheckbox" icon-size="14px" label-class="search-wrap-checklabel" checked-color="#ad0000">后四位
+        <input value="{{ inputNum }}" placeholder="请输入您喜欢的号码" border="{{ false }}" bindinput="onNumInput"
+          class="long-input" type="number" maxlength="11" />
+        <van-checkbox value="{{ checked }}" shape="square" bind:change="onChangeCheckbox" icon-size="14px"
+          label-class="search-wrap-checklabel" checked-color="#ad0000">后四位
         </van-checkbox>
       </view>
       <view class="flex input-nums" wx:else>
         <box-input id="boxInput" bind:inputComplete="boxInputComplete"></box-input>
       </view>
-      <van-button color="#ad0000" size="small" custom-class="search_btn" disabled="{{disableBtn}}" bindtap="handleSearch">搜索</van-button>
+      <van-button color="#ad0000" size="small" custom-class="search_btn" disabled="{{disableBtn}}"
+        bindtap="handleSearch">搜索</van-button>
     </view>
     <!-- 搜索规则 -->
     <view class="flex align-middle search-rules">
       <view class="flex flex-center search-rule">
         <city-picker fullcity="{{false}}" bindgetcity="onGetCity"></city-picker>
       </view>
-      <picker class="flex flex-center search-rule" mode="selector" range-key="name" bindchange="bindSortTypeChange" value="{{sortType}}" range="{{sortTypeArray}}">
+      <picker class="flex flex-center search-rule" mode="selector" range-key="name" bindchange="bindSortTypeChange"
+        value="{{sortType}}" range="{{sortTypeArray}}">
         <view style="display: flex;">
           <view class="txtover-1">{{sortTypeArray[sortType].name}}</view>
           <van-icon name="arrow-down" style="margin-left:5px" />
@@ -45,14 +49,19 @@
       <view class="red-tag">靓</view>
       <view class="num-info">
         <view class="num-char">
-          <view wx:for="{{item.item}}" wx:for-item="subItem" wx:key="*this" style="color: {{subItem.highlight?'#ad0000':''}}">
+          <view wx:for="{{item.item}}" wx:for-item="subItem" wx:key="*this"
+            style="color: {{subItem.highlight?'#ad0000':''}}">
             {{subItem.numChar}}</view>
         </view>
         <view class="color-gary area-text">{{item.areaInfo}}</view>
       </view>
       <view class="price">
         <view class="color-orange">￥{{item.salePrice}}</view>
-        <view class="color-gary old-price">￥{{item.marketPrice}}</view>
+        <view class="color-gary old-price" wx:if="{{item.prestore==='0'&&item.salePrice!=='价格面议'}}">
+          ￥{{ item.marketPrice }}
+        </view>
+        <view class="color-gary tip-text" wx:if="{{item.prestore!=='0'&&item.salePrice!=='价格面议'}}">
+          （含{{item.prestore}}话费）</view>
       </view>
     </view>
   </view>

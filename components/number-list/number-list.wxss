@@ -4,7 +4,7 @@
 	right: 0;
 	left: 0;
 	z-index: 99;
-  background-color: #fff;
+	background-color: #fff;
 }
 
 .search-wrap {
@@ -104,6 +104,10 @@
 	text-decoration-line: line-through;
 	margin-left: 16rpx;
 	font-size: 20rpx;
+}
+.num-waterfall .tip-text {
+	margin-left: 10rpx;
+	font-size: 28rpx;
 }
 .num-waterfall .color-orange {
 	color: #FF6600;

@@ -48,14 +48,14 @@ Component({
       const param = {
         pageIndex: pageIndex,
         pageSize: this.data.pageSize,
-        province: this.data.selectCity?.[0] || "",
-        city: this.data.selectCity?.[1] || "",
+        province: this.data.selectCity?.[0] === "全国" ? "" : this.data.selectCity[0] || "",
+        city: this.data.selectCity?.[1] === "默认全部" ? "" : this.data.selectCity[1] || "",
         prettyType: this.data.selectRules?.prettyType || "",    //规则
         operator: this.data.selectRules?.operator || "",      //规则-运营商
         priceSegment: this.data.selectRules?.priceSegment || "",  //规则-价格段
         searchBody: {
           isTail: this.data.checked ? 1 : 0,
-          type: this.data.type === JingZhun ? 1 : 0,
+          type: this.data.type === JingZhun ? 0 : 1,
           content: this.data.type === JingZhun ? this.data.boxInputNum?.map(v => v === '' ? '_' : v).join('') : this.data.inputNum,
         },
         sortType: this.data.sortType,
