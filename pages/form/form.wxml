@@ -1,5 +1,5 @@
 <!--pages/form/form.wxml-->
-<view class="content_wrap">
+<view class="content_wrap" wx:if="{{selectNum}}">
   <view class="top-numBanner">
     <view class="top-numBanner-num">{{selectNum.num}}</view>
     <view class="top-numBanner-txt">{{selectNum.areaInfo}}</view>
