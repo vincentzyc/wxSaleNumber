@@ -29,6 +29,13 @@
 	box-sizing: border-box;
 }
 
+.page-wrapper {
+	background-color: #f4f4f4;
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 100vh;
+}
+
 .row {
 	position: relative;
 	width: 100%;
@@ -249,8 +256,8 @@
 .bgred {
 	background-color: #cf2726;
 }
-.bgffa51c{
-  background-color: #ffa51c;
+.bgffa51c {
+	background-color: #ffa51c;
 }
 .c666 {
 	color: #666
@@ -265,10 +272,13 @@
 .fs12 {
 	font-size: 24rpx;
 }
-.text-center {
-	text-align: center;
+.fs14 {
+	font-size: 28rpx;
 }
 
+.pd10 {
+	padding: 20rpx;
+}
 .mg10 {
 	margin: 20rpx;
 }
@@ -281,9 +291,18 @@
 .mg-b10 {
 	margin-bottom: 20rpx;
 }
+.mg-l10 {
+	margin-left: 20rpx;
+}
 .mg-l15 {
 	margin-bottom: 30rpx;
 }
+.lh20 {
+	line-height: 40rpx;
+}
 .bold {
 	font-weight: bold;
+}
+.text-center {
+	text-align: center;
 }
