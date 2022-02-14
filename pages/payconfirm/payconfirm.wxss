@@ -1,1 +1,28 @@
 /* pages/payconfirm/payconfirm.wxss */
+.info-content {
+	margin: 10rpx;
+	padding: 20rpx;
+	border-radius: 20rpx;
+	background-color: #fff;
+	font-size: 24rpx;
+}
+.info-content .info-item {
+	border: 2rpx solid #eee;
+	padding: 20rpx;
+	margin-bottom: 20rpx;
+}
+
+.info-content .info-item:last-child {
+	margin-bottom: 0;
+}
+
+.pay-check {
+	margin-top: 30rpx;
+}
+.pay-btn {
+	color: #fff;
+	margin-top: 60rpx;
+	font-weight: bold;
+	border-radius: 40rpx;
+	background-color: #cf2726;
+}

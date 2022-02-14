@@ -1,2 +1,42 @@
-<!--pages/payconfirm/payconfirm.wxml-->
-<text>orderCode: {{orderCode}}</text>
+<view class="page-wrapper pd10" wx:if="{{orderCode&&selectNum&&submitForm}}">
+  <view class="fs14 mg10 bold">选号信息</view>
+  <view class="info-content">
+    <view class="flex info-item">
+      <text class="flex-auto">手机号：</text>
+      <text>{{selectNum.num}}</text>
+    </view>
+    <view class="flex info-item">
+      <text class="flex-auto">支付金额：</text>
+      <text class="cred bold">￥{{selectNum.salePrice}}</text>
+    </view>
+  </view>
+  <view class="fs14 mg10 bold">配送信息</view>
+  <view class="info-content">
+    <view class="flex info-item">
+      <text class="flex-auto">姓名：</text>
+      <text>{{submitForm.name}}</text>
+    </view>
+    <view class="flex info-item">
+      <text class="flex-auto">手机：</text>
+      <text>{{submitForm.contactNo}}</text>
+    </view>
+    <view class="flex info-item">
+      <text class="flex-auto">城市：</text>
+      <text>{{submitForm.province+' '+submitForm.city+' '+submitForm.district}}</text>
+    </view>
+    <view class="flex info-item">
+      <text class="flex-auto">详细地址：</text>
+      <text>{{submitForm.address}}</text>
+    </view>
+  </view>
+  <view class="info-content pay-check">
+    <van-radio-group value="{{ radio }}" bind:change="onChange">
+      <view class="flex align-middle">
+        <image src="/assets/images/wechat.png" style="width:26px;height:26px" />
+        <text class="flex-auto bold mg-l10">微信支付</text>
+        <van-radio name="1" checked-color="#50bc33"></van-radio>
+      </view>
+    </van-radio-group>
+  </view>
+  <button class="pay-btn" bindtap="handlePay">立即支付</button>
+</view>

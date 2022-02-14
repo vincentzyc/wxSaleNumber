@@ -1,11 +1,62 @@
 // pages/payconfirm/payconfirm.js
-Page({
+const app = getApp()
+import Api from '../../api/index'
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
-    orderCode: ''
+    radio: '1',
+    orderCode: '',
+    userCode: '',
+    selectNum: null,
+    submitForm: null
+  },
+
+  onChange(event) {
+    this.setData({ radio: event.detail });
+  },
+  async handlePay() {
+    const params = {
+      payType: '4',
+      userCode: this.data.userCode,
+      orderId: this.data.orderCode
+    }
+    console.log(params);
+    let res = await Api.Pay.pay('param=' + JSON.stringify(params))
+    if (res.code === '0') {
+      let payData = JSON.parse(res.data)
+      wx.requestPayment({
+        nonceStr: payData.Nonce,
+        package: payData.Package,
+        paySign: payData.Sign,
+        timeStamp: payData.Timestamp,
+        signType: "MD5",
+        success: function (res) {
+          console.log('success', res)
+          wx.showToast({
+            title: '支付成功！',
+            icon: 'none',
+            duration: 1000
+          })
+        },
+        fail: function (res) {
+          wx.showToast({
+            title: '支付失败，请重试！',
+            icon: 'none',
+            duration: 1000
+          })
+        },
+        complete: function (res) {
+          console.log('complete', res)
+        }
+      })
+    } else {
+      console.log(res.msg)
+      wx.showToast({
+        title: res.msg,
+        icon: 'none',
+        duration: 1000
+      })
+    }
   },
 
   /**
@@ -13,55 +64,18 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
+    const selectNum = app.getGlobal('selectNumber')
+    const submitForm = app.getGlobal('submitForm')
+    const userCode = app.getGlobal('userCode')
+    if (selectNum) this.setData({ selectNum: selectNum })
+    if (submitForm) this.setData({ submitForm: submitForm })
     if (options.orderCode) this.setData({ orderCode: options.orderCode })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    if (userCode) {
+      this.setData({ userCode: userCode })
+    } else {
+      wx.login({
+        success: res => this.setData({ userCode: res.code })
+      })
+    }
   }
 })
