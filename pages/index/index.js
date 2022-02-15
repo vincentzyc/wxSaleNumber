@@ -1,23 +1,9 @@
-// index.js
 // 获取应用实例
 const app = getApp()
 
 Page({
   data: {
-    active: 0,
     bannerUrl: ''
-  },
-
-  onChange(event) {
-    console.log(event.detail);
-    this.setData({ active: event.detail });
-
-  },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../location/location'
-    })
   },
   onReachBottom() {
     app.eventBus.emit('onReachBottom')
@@ -26,6 +12,10 @@ Page({
     if (url) this.setData({ bannerUrl: url })
   },
   onLoad() {
+    console.log('onLoad');
     app.eventBus.on('onGetBanner', url => this.onGetBanner(url))
+  },
+  onShow: function () {
+    // this.setData({ oldTab: this.data.active, active: this.data.oldTab });
   }
 })
