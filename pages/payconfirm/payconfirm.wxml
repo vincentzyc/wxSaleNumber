@@ -1,5 +1,5 @@
 <view class="page-wrapper pd10" wx:if="{{orderCode&&selectNum&&submitForm}}">
-  <view class="fs14 mg10 bold">选号信息</view>
+  <view class="fs14 mg10 bold">订单信息</view>
   <view class="info-content">
     <view class="flex info-item">
       <text class="flex-auto">手机号：</text>

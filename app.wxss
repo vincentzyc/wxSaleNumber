@@ -268,7 +268,9 @@
 .cred {
 	color: #cf2726;
 }
-
+.cblue{
+	color: #2174ff;
+}
 .fs12 {
 	font-size: 24rpx;
 }
@@ -288,6 +290,9 @@
 .mg15 {
 	margin: 30rpx;
 }
+.mg-t10 {
+	margin-top: 20rpx;
+}
 .mg-b10 {
 	margin-bottom: 20rpx;
 }
@@ -305,4 +310,7 @@
 }
 .text-center {
 	text-align: center;
+}
+.text-left {
+	text-align: left;
 }

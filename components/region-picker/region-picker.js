@@ -35,7 +35,6 @@ Component({
   methods: {
     pickerChange() {
       if (Array.isArray(this.data.multiText)) {
-        this.setData({ multiStr: this.data.fullcity ? value.join(' ') : this.data.multiText[1] })
         this.triggerEvent('getcity', this.data.multiText)
       }
     },
@@ -73,7 +72,8 @@ Component({
         this.setData({
           multiArr: [provinces, citys],
           multiIndex: [provinceIndex, cityIndex],
-          multiText: [provinces[provinceIndex], citys[cityIndex]]
+          multiText: [provinces[provinceIndex], citys[cityIndex]],
+          multiStr: this.data.fullcity ? [provinces[provinceIndex], citys[cityIndex]].join(' ') : citys[cityIndex]
         })
       } else {
         const provinces = cityInfo.map(v => v.n) || []
@@ -81,7 +81,8 @@ Component({
         this.setData({
           multiArr: [provinces, citys],
           multiIndex: [0, 0],
-          multiText: [provinces[0], citys[0]]
+          multiText: [provinces[0], citys[0]],
+          multiStr: this.data.fullcity ? [provinces[0], citys[0]].join(' ') : citys[0]
         })
       }
     },

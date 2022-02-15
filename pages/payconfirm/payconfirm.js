@@ -2,6 +2,8 @@
 const app = getApp()
 import Api from '../../api/index'
 
+const successPgae = 'https://h5.lipush.com/h5/index.html?id=2022021416305100013'
+
 Page({
   data: {
     radio: '1',
@@ -16,26 +18,27 @@ Page({
   },
   async handlePay() {
     const params = {
-      payType: '4',
+      payType: 'WXMINI',
+      payKind: 'FRONT',
+      updateType: 'PAY',
       userCode: this.data.userCode,
-      orderId: this.data.orderCode
+      orderCode: this.data.orderCode
     }
-    console.log(params);
-    let res = await Api.Pay.pay('param=' + JSON.stringify(params))
-    if (res.code === '0') {
-      let payData = JSON.parse(res.data)
+    wx.showLoading({ title: '正在支付' })
+    const res = await Api.Common.orderUpdate(params)
+    wx.hideLoading()
+    const payData = res.payParam
+    if (payData && payData.payParam) {
       wx.requestPayment({
-        nonceStr: payData.Nonce,
-        package: payData.Package,
-        paySign: payData.Sign,
-        timeStamp: payData.Timestamp,
+        nonceStr: payData.payParam.Nonce,
+        package: payData.payParam.Package,
+        paySign: payData.payParam.Sign,
+        timeStamp: payData.payParam.Timestamp,
         signType: "MD5",
         success: function (res) {
-          console.log('success', res)
-          wx.showToast({
-            title: '支付成功！',
-            icon: 'none',
-            duration: 1000
+          const link = encodeURIComponent(successPgae)
+          wx.navigateTo({
+            url: '../webview/webview?link=' + link
           })
         },
         fail: function (res) {
@@ -50,7 +53,6 @@ Page({
         }
       })
     } else {
-      console.log(res.msg)
       wx.showToast({
         title: res.msg,
         icon: 'none',
@@ -63,7 +65,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
     const selectNum = app.getGlobal('selectNumber')
     const submitForm = app.getGlobal('submitForm')
     const userCode = app.getGlobal('userCode')
