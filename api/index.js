@@ -1,5 +1,5 @@
 import { Common, CommonBaseUrl } from "./common"
-import { Pay, PayBaseUrl } from "./pay"
+import { Card, CardBaseUrl } from "./card"
 
 export const createInterface = (arr, baseUrl) => {
   let Interface = {};
@@ -21,7 +21,7 @@ export const createInterface = (arr, baseUrl) => {
 
 export const Api = {
   Common: createInterface(Common, CommonBaseUrl),
-  Pay: createInterface(Pay, PayBaseUrl),
+  Card: createInterface(Card, CardBaseUrl),
   post(config) {
     return new Promise((resolve, reject) => {
       wx.request({
