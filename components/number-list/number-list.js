@@ -38,7 +38,6 @@ Component({
       })
     },
     async onReachBottom() {
-      console.log("到底啦~")
       if (this.data.loading) return
       if (this.data.loadAll) return
       this.getNumPool(this.data.pageIndex + 1)
@@ -95,8 +94,8 @@ Component({
       this.setData({ boxInputNum: event.detail })
     },
     openFilter() {
-      const childNumberFilter = this.selectComponent('#numberFilter');
-      if (childNumberFilter) childNumberFilter.showPopup()
+      if (!this.elNumberFilter) this.elNumberFilter = this.selectComponent('#numberFilter')
+      if (this.elNumberFilter) this.elNumberFilter.showPopup()
     },
     onGetRules(e) {
       this.setData({ selectRules: e.detail })
@@ -118,16 +117,42 @@ Component({
     },
     changeSearch() {
       if (this.data.type === MoHu) {
-        if (!this.boxInput) this.boxInput = this.selectComponent('#boxInput')
-        if (this.boxInput) this.boxInput.reset()
+        if (!this.elBoxInput) this.elBoxInput = this.selectComponent('#boxInput')
+        if (this.elBoxInput) this.elBoxInput.reset()
         this.setData({ type: JingZhun })
       } else {
         this.setData({ type: MoHu, inputNum: '', checked: false })
       }
+    },
+    resetRules() {
+      if (!this.elNumberFilter) this.elNumberFilter = this.selectComponent('#numberFilter')
+      if (this.elNumberFilter) this.elNumberFilter.reset()
+      this.setData({
+        type: MoHu,
+        inputNum: "",
+        boxInputNum: [],
+        disableBtn: false,
+        checked: false,
+        sortType: 0,
+        selectRules: null
+      })
+    },
+    locationSearch(isLocation) {
+      if (!this.elRegionPicker) this.elRegionPicker = this.selectComponent('#regionPicker')
+      let locationCity = ['全国', '默认全部']
+      if (isLocation) {
+        locationCity = ['广东省', '广州市']
+      }
+      this.resetRules()
+      if (this.elRegionPicker) {
+        this.elRegionPicker.setMultiArr(locationCity)
+      }
+      this.handleSearch()
     }
   },
   async created() {
     app.eventBus.on('onReachBottom', () => this.onReachBottom())
+    app.eventBus.on('onRefreshNumber', isLocation => this.locationSearch(isLocation))
     wx.showLoading()
     this.cmData = await Api.Common.getPidInfo({ pid: app.getGlobal('pid') })
     this.rulesList = await Api.Common.getRulesList()

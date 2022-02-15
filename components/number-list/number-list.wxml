@@ -22,7 +22,7 @@
     <!-- 搜索规则 -->
     <view class="flex align-middle search-rules">
       <view class="flex flex-center search-rule">
-        <region-picker fullcity="{{false}}" bindgetcity="onGetCity"></region-picker>
+        <region-picker id="regionPicker" fullcity="{{false}}" bindgetcity="onGetCity"></region-picker>
       </view>
       <picker class="flex flex-center search-rule" mode="selector" range-key="name" bindchange="bindSortTypeChange"
         value="{{sortType}}" range="{{sortTypeArray}}">
