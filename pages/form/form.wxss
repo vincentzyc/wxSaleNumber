@@ -75,9 +75,7 @@
 	overflow: hidden;
 }
 .agr-text {
-	color: #2174ff;
-  line-height: 40rpx;
-  
+	line-height: 40rpx;
 }
 .info-img {
 	margin-bottom: 90rpx;

@@ -1,4 +1,4 @@
-<!--pages/form/form.wxml-->
+<!-- pages/form/form.wxml -->
 <view class="content_wrap" wx:if="{{selectNum}}">
   <view class="top-numBanner">
     <view class="top-numBanner-num">{{selectNum.num}}</view>
@@ -33,31 +33,29 @@
       </view>
     </view>
   </view>
-
   <view class="fs12 mg15">
-    <view class="bold">配送信息<text class="cred">（云南、新疆、西藏不发货）</text></view>
+    <view class="bold">
+      配送信息
+      <text class="cred">（云南、新疆、西藏不发货）</text>
+    </view>
   </view>
-
   <view class="form-wrap">
     <van-cell-group>
-      <van-field value="{{ form.name }}" required label="姓名" title-width="5em" placeholder="请输入姓名" maxlength="20"
-        input-align="right" placeholder-style="color:#999" bind:change="onChangeName" />
-      <van-field value="{{ form.contactNo }}" type="tel" required label="手机号" maxlength="11" title-width="5em"
-        placeholder="请输入手机号" placeholder-style="color:#999" input-align="right" bind:change="onChangePhone" />
-      <van-field value="{{ form.selectCity }}" required label="城市" title-width="5em" placeholder="请选择城市"
-        placeholder-style="color:#999" input-align="right">
+      <van-field value="{{ form.name }}" required label="姓名" title-width="5em" placeholder="请输入姓名" maxlength="20" input-align="right" placeholder-style="color:#999" bind:change="onChangeName" />
+      <van-field value="{{ form.contactNo }}" type="number" required label="手机号" maxlength="11" title-width="5em" placeholder="请输入手机号" placeholder-style="color:#999" input-align="right" bind:change="onChangePhone" />
+      <van-field value="{{ form.selectCity }}" required label="城市" title-width="5em" placeholder="请选择城市" placeholder-style="color:#999" input-align="right">
         <view slot="input" class="flex justify-end widthfull">
           <city-picker bindgetcity="onGetCity"></city-picker>
         </view>
       </van-field>
-      <van-field value="{{ form.address }}" required label="收货地址" title-width="5em" placeholder="请输入收货地址"
-        input-align="right" placeholder-style="color:#999" bind:change="onChangeAddress" />
+      <van-field value="{{ form.address }}" required label="收货地址" title-width="5em" placeholder="请输入收货地址" input-align="right" placeholder-style="color:#999" bind:change="onChangeAddress" />
       <view class="flex align-middle mg10 fs12 mg-l15">
         <van-checkbox value="{{ form.checked }}" icon-size="20px" bind:change="onChangeCheckbox" class="flex-none" />
         <view class="flex-auto">
-          <text>我已阅读并同意</text>
-          <text class="agr-text" bindtap="showAgr" data-agrLink="{{item.link}}" wx:for="{{agrList}}"
-            wx:key="name">{{item.name}}</text>
+          <text class="agr-text">我已阅读并同意</text>
+          <text class="agr-text cblue" bindtap="showAgr" data-agrLink="{{item.link}}" wx:for="{{agrList}}" wx:key="name">
+            <text>{{item.name}}</text>
+          </text>
         </view>
       </view>
     </van-cell-group>

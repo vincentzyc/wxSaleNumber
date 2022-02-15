@@ -13,16 +13,16 @@ Page({
     },
     agrList: [{
       name: '《个人信息保护政策》、',
-      link: 'https://qq.com'
+      link: 'https://h5.lipush.com/h5/index.html?id=2022021416293400014'
     }, {
       name: '《个人信息收集证明》、',
-      link: 'https://baidu.com'
+      link: 'https://h5.lipush.com/h5/index.html?id=2022021416295200011'
     }, {
       name: '《单独同意书》、',
-      link: 'https://www.sina.com.cn'
+      link: 'https://h5.lipush.com/h5/index.html?id=2022021416294000006'
     }, {
       name: '《入网许可协议》',
-      link: 'https://bilibili.com'
+      link: 'https://h5.lipush.com/h5/index.html?id=2022021416295900012'
     }],
     selectNum: null
   },
