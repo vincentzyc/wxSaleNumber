@@ -1,0 +1,20 @@
+.card-tip-content {
+	width: 86vw;
+	padding: 20rpx;
+	box-sizing: border-box;
+	text-align: center;
+}
+.card-tip-content .buycardtip {
+	width: 260rpx;
+	height: 160rpx;
+}
+.card-tip-content .buycardcode {
+	width: 260rpx;
+	height: 260rpx;
+}
+.card-tip-content .bottom-btn {
+	background-color: #bf130e;
+	margin: 40rpx;
+	font-size: 28rpx;
+	color: #fff;
+}
