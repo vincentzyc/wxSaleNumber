@@ -36,6 +36,9 @@ export const Common = [{
 }, {
   name: "getRulesList",  //获取号码搜索信息
   url: "/api/index/params",
+}, {
+  name: "getOrderList",  //获取订单列表信息
+  url: "/api/goodNumberOrder/myOrder",
 }]
 
 export default Common
