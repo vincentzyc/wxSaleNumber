@@ -74,7 +74,6 @@ Component({
           }
         }
         const cityObj = provinceObj.c[cityIndex];
-        console.log(cityObj);
         for (let index3 = 0; index3 < cityObj.c.length; index3++) {
           const element3 = cityObj.c[index3];
           areas.push(element3.n)
