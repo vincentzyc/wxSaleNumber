@@ -1,17 +1,18 @@
 const app = getApp()
 
 Component({
+  timer: 0,
   data: {
-    active: 0,
-    oldTab: 0,
-    showCardTip: false,
+    active: 1,
+    oldTab: 1,
+    showCardTip: false
   },
-  pageLifetimes: {
-    show: function () {
-      // 页面被展示
-      this.onCloseCardTip()
-    }
-  },
+  // pageLifetimes: {
+  //   show: function () {
+  //     // 页面被展示
+  //     this.onCloseCardTip()
+  //   }
+  // },
   methods: {
     onChange(event) {
       if (this.data.active === event.detail) return
@@ -35,7 +36,12 @@ Component({
     },
     toOrder() {
       wx.navigateTo({
-        url: '../order/order'
+        url: '../order/order',
+        success: () => {
+          this.timer = setTimeout(() => {
+            this.onCloseCardTip()
+          }, 1000);
+        }
       })
     },
     onCloseCardTip() {

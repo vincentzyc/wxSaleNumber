@@ -1,5 +1,5 @@
 <view>
-  <van-popup show="{{ showCardTip }}" bind:close="onCloseCardTip" closeable="{{true}}">
+  <van-popup show="{{ showCardTip }}" bind:close="onCloseCardTip" closeable="{{true}}" round>
     <view class="card-tip-content">
       <view>
         <image src="/assets/images/buycardtip.png" class="buycardtip" />
@@ -11,15 +11,15 @@
       <view class="text-left lh20 fs12 c666">4、收到快递后：实名认证——充值缴费——正常使用；</view>
       <view class="text-left lh20 fs12 c666">5、如需咨询客服，请扫描下方二维码添加客服微信。</view>
       <view class="mg-t10">
-        <image src="/assets/images/buycardcode.png" class="buycardcode" />
+        <image src="/assets/images/buycardcode.png" class="buycardcode" show-menu-by-longpress/>
       </view>
       <button class="bottom-btn" bindtap="onCloseCardTip">我知道了</button>
     </view>
   </van-popup>
-  <van-tabbar active="{{ active }}" active-color="#ee0a24" inactive-color="#000" bind:change="onChange" placeholder>
+  <van-tabbar active="{{ active }}" active-color="#ad0000" inactive-color="#000" bind:change="onChange" placeholder>
     <van-tabbar-item icon="home-o">靓号甄选</van-tabbar-item>
     <van-tabbar-item icon="location-o">本地靓号</van-tabbar-item>
-    <van-tabbar-item icon="records">选号须知</van-tabbar-item>
+    <van-tabbar-item icon="records">购卡须知</van-tabbar-item>
     <van-tabbar-item icon="orders-o">订单查询</van-tabbar-item>
   </van-tabbar>
 </view>
