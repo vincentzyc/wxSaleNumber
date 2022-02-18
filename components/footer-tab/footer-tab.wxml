@@ -6,12 +6,14 @@
       </view>
       <view class="text-center mg-b10">购卡须知</view>
       <view class="text-left lh20 fs12 c666">1、下单成功后，会有工作人员通过微信或电话与您二次确认订单信息，请注意接听；</view>
-      <view class="text-left lh20 fs12 c666">2、所有成功订单，次日下午7点前发货，届时会有短信通知、请留意；</view>
-      <view class="text-left lh20 fs12 c666">3、查询物流信息，请凭借物流单号登录快递官网查询，部分号码为当地运营商上门办理、无物流信息；</view>
-      <view class="text-left lh20 fs12 c666">4、收到快递后：实名认证——充值缴费——正常使用；</view>
+      <view class="text-left lh20 fs12 c666">
+        2、所有成功订单，需经运营商审核，通过后3-5天内由派送员联系派送，本人签收激活，请留意接听电话；
+      </view>
+      <view class="text-left lh20 fs12 c666">3、查询物流信息，请凭借物流单号登录快递官网查询，部分号码为当地运营商上门办理，无物流信息；</view>
+      <view class="text-left lh20 fs12 c666">4、收到快递后：实名认证—充值缴费—正常使用;</view>
       <view class="text-left lh20 fs12 c666">5、如需咨询客服，请扫描下方二维码添加客服微信。</view>
       <view class="mg-t10">
-        <image src="/assets/images/buycardcode.png" class="buycardcode" show-menu-by-longpress/>
+        <image src="/assets/images/buycardcode.png" class="buycardcode" show-menu-by-longpress />
       </view>
       <button class="bottom-btn" bindtap="onCloseCardTip">我知道了</button>
     </view>
