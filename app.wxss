@@ -268,7 +268,7 @@
 .cred {
 	color: #cf2726;
 }
-.cblue{
+.cblue {
 	color: #2174ff;
 }
 .fs12 {
@@ -280,6 +280,9 @@
 
 .pd10 {
 	padding: 20rpx;
+}
+.pd-b20 {
+	padding-bottom: 40rpx;
 }
 .mg10 {
 	margin: 20rpx;
@@ -293,6 +296,12 @@
 .mg-t10 {
 	margin-top: 20rpx;
 }
+.mg-r5 {
+	margin-right: 10rpx;
+}
+.mg-b5 {
+	margin-bottom: 10rpx;
+}
 .mg-b10 {
 	margin-bottom: 20rpx;
 }
@@ -300,10 +309,16 @@
 	margin-left: 20rpx;
 }
 .mg-l15 {
-	margin-bottom: 30rpx;
+	margin-left: 30rpx;
+}
+.mg-b20 {
+	margin-bottom: 40rpx;
 }
 .lh20 {
 	line-height: 40rpx;
+}
+.lh24 {
+	line-height: 48rpx;
 }
 .bold {
 	font-weight: bold;

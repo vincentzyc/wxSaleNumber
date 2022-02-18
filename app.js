@@ -13,12 +13,9 @@ App({
   },
   onLaunch(options) {
     if (options.query.pid) this.globalData.pid = options.query.pid
+    if (options.query.id) this.globalData.templateId = options.query.id
     this.globalData.query = options.query
     this.getUserInfo()
-    // // 展示本地存储能力
-    // const logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
   },
   setGlobal(key, value) {
     this.globalData[key] = value
@@ -27,10 +24,12 @@ App({
     return this.globalData[key] || null
   },
   globalData: {
+    templateId: '',
     userCode: '',
-    pid: '23126',
+    pid: '26058',
     query: '',
     cmData: null,
+    wxPayAccount: null,
     selectNumber: null,
     submitForm: null
   }

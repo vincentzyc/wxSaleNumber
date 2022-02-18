@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/location/location",
     "pages/order/order",
-    "pages/logs/logs",
+    "pages/orderlist/orderlist",
+    "pages/orderdetail/orderdetail",
     "pages/form/form",
     "pages/webview/webview",
     "pages/payconfirm/payconfirm"
