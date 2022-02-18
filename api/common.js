@@ -1,4 +1,3 @@
-// export const CommonBaseUrl = "https://number.junpinclub.com"
 export const CommonBaseUrl = "https://test-number.junpinclub.com"
 
 export const Common = [{
