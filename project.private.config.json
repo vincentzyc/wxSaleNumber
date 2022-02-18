@@ -15,23 +15,37 @@
         {
           "name": "",
           "pathName": "pages/form/form",
-          "query": "",
+          "query": "id=22021413521900007",
           "launchMode": "default",
           "scene": null
         },
         {
           "name": "",
           "pathName": "pages/index/index",
-          "query": "pid=23126",
-          "launchMode": "default",
-          "scene": null
+          "query": "pid=26058&test=haha",
+          "scene": null,
+          "launchMode": "default"
         },
         {
           "name": "",
           "pathName": "pages/payconfirm/payconfirm",
           "query": "orderCode=GN20220213172205144219008",
-          "scene": null,
-          "launchMode": "default"
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/order/order",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/orderlist/orderlist",
+          "query": "phone=15622122628",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
