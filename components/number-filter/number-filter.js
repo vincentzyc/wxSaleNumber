@@ -26,6 +26,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onChange(event){
+      this.setData({
+        activeNames: event.detail,
+      });
+    },
     reset() {
       this.setData({ typeArray: [] })
     },

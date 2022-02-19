@@ -1,6 +1,6 @@
 <view>
   <van-popup show="{{ show }}" position="right" custom-style="width:80%;height: 100%;" bind:close="onClose">
-    <van-collapse value="{{ activeNames }}">
+    <van-collapse value="{{ activeNames }}" bind:change="onChange">
       <van-collapse-item wx:for="{{sideRules}}" wx:key="value" title="{{item.label}}" name="{{item.value}}">
         <wxs module="fn">
           module.exports = {
