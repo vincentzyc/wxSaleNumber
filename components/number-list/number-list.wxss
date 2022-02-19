@@ -44,6 +44,8 @@
 }
 .search_btn {
 	font-size: 28rpx;
+  border-top-right-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
 	height: 68rpx;
 }
 .search-rules {

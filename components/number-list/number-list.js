@@ -16,7 +16,8 @@ Component({
     inputLenth: 11,
     selectRules: null,
     selectCity: [],
-    sortType: 0,
+    curIpRegion: [],
+    sortType: '',
     sortTypeArray: [
       { name: "默认", id: 0 },
       { name: "价格由高到低", id: 1 },
@@ -49,6 +50,7 @@ Component({
         loadMore: true,
         loading: true,
         loadAll: false,
+        disableBtn: true,
         numDataList: newList
       })
       const param = {
@@ -68,7 +70,7 @@ Component({
         hotLabel: "", //热搜
         vendorId: this.cmData.vendorId
       }
-      console.log(param);
+      if (app.getGlobal('templateId')) param.promotionPageId = app.getGlobal('templateId');
       const res = await Api.Common.getNumPool(param)
       if (Array.isArray(res.numItem) && res.numItem.length > 0) {
         this.data.numDataList.push(...res.numItem)
@@ -76,15 +78,18 @@ Component({
           loadMore: true,
           loading: false,
           loadAll: false,
+          disableBtn: false,
           numDataList: this.data.numDataList
         })
       } else {
         this.setData({
           loadMore: false,
           loadAll: true,
-          loading: false
+          loading: false,
+          disableBtn: false
         })
       }
+      wx.hideLoading()
     },
     handleSearch() {
       if (this.data.loading) return
@@ -133,19 +138,40 @@ Component({
         boxInputNum: [],
         disableBtn: false,
         checked: false,
-        sortType: 0,
+        sortType: '',
         selectRules: null
       })
     },
-    locationSearch(isLocation) {
+    async locationSearch(isLocation) {
+      wx.showLoading({ title: '靓号加载中', mask: true })
       if (!this.elRegionPicker) this.elRegionPicker = this.selectComponent('#regionPicker')
-      let locationCity = ['全国', '默认全部']
+      let locationCity = []
       if (isLocation) {
-        locationCity = ['广东省', '广州市']
+        if (this.data.curIpRegion.length > 0) {
+          locationCity = this.data.curIpRegion
+        } else {
+          const res = await Api.Card.getIpRegion({})
+          if (res.code === '0000') {
+            if (res.data) {
+              if (res.data.province) {
+                locationCity.push(res.data.province)
+                if (res.data.city) locationCity.push(res.data.city)
+              }
+            }
+          }
+          if (locationCity.length > 0) {
+            this.setData({ curIpRegion: locationCity })
+          } else {
+            locationCity = ['全国', '默认全部']
+          }
+        }
+      } else {
+        locationCity = ['全国', '默认全部']
       }
       this.resetRules()
       if (this.elRegionPicker) {
         this.elRegionPicker.setMultiArr(locationCity)
+        this.setData({ selectCity: locationCity })
       }
       this.handleSearch()
     }
@@ -153,13 +179,12 @@ Component({
   async created() {
     app.eventBus.on('onReachBottom', () => this.onReachBottom())
     app.eventBus.on('onRefreshNumber', isLocation => this.locationSearch(isLocation))
-    wx.showLoading()
+    wx.showLoading({ title: '靓号加载中', mask: true })
     this.cmData = await Api.Common.getPidInfo({ pid: app.getGlobal('pid') })
     this.rulesList = await Api.Common.getRulesList()
-    wx.hideLoading()
     app.setGlobal('cmData', this.cmData)
     if (this.cmData?.headImg) app.eventBus.emit('onGetBanner', this.cmData.headImg)
     if (this.rulesList?.sideRules) app.eventBus.emit('onGetSideRules', this.rulesList.sideRules)
-    this.getNumPool()
+    this.locationSearch(true)
   }
 })
