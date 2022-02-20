@@ -1,6 +1,7 @@
 // pages/form/form.js
 const app = getApp()
 import Api from '../../api/index'
+import { objParam2Str } from '../../utils/index'
 import checkForm from '../../assets/js/validate.js'
 Page({
   data: {
@@ -26,7 +27,7 @@ Page({
     }],
     selectNum: null
   },
-  onLoad: function () {
+  onLoad() {
     const selectNum = app.getGlobal('selectNumber')
     if (selectNum) this.setData({ selectNum: selectNum })
   },
@@ -80,8 +81,6 @@ Page({
   },
   async submit() {
     if (!this.validate()) return
-    // console.log(app.getGlobal('query')); //获取页面参数
-    // let homeUrl = this.$util.getSessionStorage("homeUrl");
     this.data.form['handleNo'] = this.data.selectNum.num
     this.data.form['numberPid'] = this.data.selectNum.pid
     this.data.form['wishCity'] = this.data.selectNum.areaInfo
@@ -93,28 +92,14 @@ Page({
     this.data.form['province'] = this.data.form.selectCity[0] || '';
     this.data.form['city'] = this.data.form.selectCity[1] || '';
     this.data.form['district'] = this.data.form.selectCity[2] || '';
-    this.data.form['templateUrl'] = JSON.stringify(app.getGlobal('query'))
-    wx.showLoading({ title: '提交中...' })
-    console.log(this.data.form);
+    this.data.form['templateUrl'] = objParam2Str(app.getGlobal('query'), 'pages/index/index')
+    if (app.getGlobal('templateId')) this.data.form['promotionPageId'] = app.getGlobal('templateId');
+    wx.showLoading({ title: '提交中...', mask: true })
     app.setGlobal('submitForm', this.data.form)
     let res = await Api.Common.addOrder(this.data.form)
     wx.hideLoading()
     console.log(res);
-    // {orderCode: "GN20220213172205144219008"}
-    // if (this.selectNum.PID === '23149' || this.selectNum.PID === '24943' || this.selectNum.PID === '24944') {
-    //   this.formData['templateUrl'] = homeUrl.replace('clickid', 'CK')   //不走api上报，走js上报
-    // }
-    // this.$util.showLoading()
-    // let res = await Api.Common.addOrder(this.formData)
-    // this.$util.closeLoading()
     if (res.code === '0000') {
-      // if (this.selectNum.PID === '23149') {
-      //   _baq.track("form", { assets_id: "1721736203707464", product_name: '靓号', product_price: 0 })
-      // }
-      // this.$toast('订单提交成功！')
-      // let orderCode = res.data.orderCode
-      // 跳转订单提交
-      // window.location.href = url
       wx.navigateTo({
         url: '../payconfirm/payconfirm?orderCode=' + res.data.orderCode
       })
