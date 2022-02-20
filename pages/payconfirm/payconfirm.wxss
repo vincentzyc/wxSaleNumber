@@ -26,3 +26,8 @@
 	border-radius: 40rpx;
 	background-color: #cf2726;
 }
+
+.edit-form-wrap {
+	width: 86vw;
+	padding: 20rpx;
+}

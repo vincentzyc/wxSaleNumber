@@ -1,6 +1,11 @@
 {
   "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-popup": "@vant/weapp/popup/index",
     "van-radio": "@vant/weapp/radio/index",
-    "van-radio-group": "@vant/weapp/radio-group/index"
-  }
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-field": "@vant/weapp/field/index",
+    "city-picker": "/components/city-picker/city-picker"
+  },
+  "navigationBarTitleText": "订单支付"
 }
