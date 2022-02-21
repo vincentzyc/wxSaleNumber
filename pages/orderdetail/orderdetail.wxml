@@ -1,0 +1,45 @@
+<!-- pages/orderdetail/orderdetail.wxml -->
+<view class="main_wrap" wx:if="{{orderInfo}}">
+  <view class="banner">
+    <image mode="widthFix" class="banner-img widthfull" src="/assets/images/orderBanner.jpg"></image>
+  </view>
+  <view class="wrap-title">订单信息</view>
+  <view class="block-wrap">
+    <view class="block-item-wrap">
+      <view class="p-tag">订单编号：</view>
+      <view class="span-tag">{{orderInfo.orderCode}}</view>
+    </view>
+    <view class="block-item-wrap">
+      <view class="p-tag">下单时间：</view>
+      <view class="span-tag">{{orderInfo.createTime}}</view>
+    </view>
+    <view class="block-item-wrap">
+      <view class="p-tag">办理号码：</view>
+      <view class="span-tag">{{orderInfo.handleNo}}</view>
+    </view>
+    <view class="block-item-wrap block-line">
+      <view class="p-tag">实付金额：</view>
+      <view class="span-tag">￥{{orderInfo.saleAmount}}</view>
+    </view>
+    <view class="block-item-wrap">
+      <view class="p-tag">姓名：</view>
+      <view class="span-tag">{{orderInfo.name}}</view>
+    </view>
+    <view class="block-item-wrap">
+      <view class="p-tag">联系号码：</view>
+      <view class="span-tag">{{orderInfo.contactNo}}</view>
+    </view>
+    <view class="block-item-wrap">
+      <view class="p-tag">联系地址：</view>
+      <view class="span-tag">{{orderInfo.address}}</view>
+    </view>
+    <view class="block-item-wrap">
+      <view class="p-tag">订单状态：</view>
+      <view class="span-tag">{{orderInfo.collectStatusKey}}</view>
+    </view>
+  </view>
+  <view class="p-tag" class="wrap-title">物流信息</view>
+  <view class="block-wrap">
+    <view class="lh24" wx:for="{{orderInfo.logistics}}" wx:key="*this">{{item}}</view>
+  </view>
+</view>
