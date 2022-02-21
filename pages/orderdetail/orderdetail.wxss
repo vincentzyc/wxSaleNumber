@@ -1,0 +1,42 @@
+/* pages/orderdetail/orderdetail.wxss */
+.main_wrap {
+	width: 100%;
+	min-height: 100vh;
+	background-color: #f4f4f4;
+  padding-bottom: 40rpx;
+  box-sizing: border-box;
+}
+.wrap-title, .block-wrap {
+	width: 94%;
+	margin: 0 auto;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+.wrap-title {
+	font-weight: bold;
+	margin-top: 30rpx;
+}
+.block-wrap {
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 20rpx 30rpx;
+	margin: 30rpx auto 40rpx auto;
+}
+.block-item-wrap {
+	display: flex;
+	margin: 10rpx 0;
+	align-items: center;
+}
+.block-wrap .block-line {
+	border-bottom: 5rpx solid #d0d0d0;
+	padding-bottom: 30rpx;
+	margin-bottom: 30rpx;
+}
+.block-item-wrap .p-tag {
+	margin: 0;
+	white-space: pre;
+}
+.block-item-wrap .span-tag {
+	flex: 7.5;
+}
