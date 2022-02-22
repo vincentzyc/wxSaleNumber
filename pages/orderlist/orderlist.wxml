@@ -1,0 +1,29 @@
+<view class="main_wrap">
+  <view class="banner">
+    <image mode="widthFix" class="banner-img widthfull" src="/assets/images/orderBanner.jpg"></image>
+  </view>
+  <view wx:if="{{orderList.length>0}}">
+    <view class="block_wrap" wx:for="{{orderList}}" wx:key="orderCode" bindtap="toDetail" data-order-item="{{item}}">
+      <view class="block-left">
+        <view class="num-char">
+          <view class="num-char-phone">{{item.handleNo}}</view>
+          <span class="num-char-state">{{item.collectStatusKey}}</span>
+        </view>
+        <view class="info-line mg-b5">
+          <view class="flex-none">下单时间：</view>
+          <view class="info-line-text">{{item.createTime}}</view>
+        </view>
+        <view class="info-line">
+          <view class="flex-none">订单编号：</view>
+          <view class="info-line-text">{{item.orderCode}}</view>
+        </view>
+      </view>
+      <view class="block-right">
+        <view class="view-detail color-red">查看明细 ></view>
+      </view>
+    </view>
+  </view>
+  <view class="text-center mg-t10" wx:else>
+    暂无订单
+  </view>
+</view>
