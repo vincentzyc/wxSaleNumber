@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "jun-number-list": "/components/number-list/number-list",
-    "footer-tab": "/components/footer-tab/footer-tab"
+    "footer-tab": "/components/footer-tab/footer-tab",
+    "van-icon": "@vant/weapp/icon/index"
   }
 }
