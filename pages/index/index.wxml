@@ -5,4 +5,7 @@
   </view>
   <jun-number-list></jun-number-list>
   <footer-tab></footer-tab>
+  <view bindtap="back2top" class="back-top" hidden="{{hiddenBackTop}}">
+    <van-icon name="back-top" />
+  </view>
 </view>
