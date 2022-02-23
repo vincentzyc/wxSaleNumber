@@ -1,2 +1,27 @@
-<!--pages/order.wxml-->
-<text>pages/order.wxml</text>
+<!-- pages/order.wxml -->
+<view class="main_wrap">
+  <view class="banner">
+    <image mode="widthFix" class="banner-img widthfull" src="/assets/images/orderBanner.jpg"></image>
+  </view>
+  <view class="top-wrap">
+    <input model:value="{{ inputNum }}" maxlength="11" class="num-input" type="number" bindinput="onNumInput" placeholder="请输入预留手机号码" />
+    <button class="btn-style" bindtap="handleSearch">立即查询</button>
+    <view class="tip-wrap">
+      <text class="tip-title">查询须知</text>
+      <text>
+        1、请输入您的下单预留手机号和验证码。即可查看订单；
+        2、点击订单列表可查看订单详情；
+        3、对于订单有任何疑问，可咨询客服，一对一为您解答疑惑；
+        4、靓号下单后请尽快支付，以免被抢走哦；
+        5、下单后请留意电话信息。
+      </text>
+    </view>
+  </view>
+  <view class="code-img-wrap text-center">
+    <image mode="widthFix" class="widthfull" src="/assets/images/ordercode.png" show-menu-by-longpress></image>
+  </view>
+  <view class="text-center lh20 fs14  pd-b20">
+    <text>长按二维码扫描联系客服
+        查询订单明细及物流信息</text>
+  </view>
+</view>

@@ -1,1 +1,42 @@
 /* pages/order.wxss */
+.main_wrap {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+.top-wrap {
+  width: 90%;
+  margin: .5rem auto;
+}
+.main_wrap .num-input {
+  background-color: #fff;
+  padding: .5rem 1rem;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 3px;
+}
+.main_wrap .btn-style {
+  background-color: #b71010;
+  color: #fff;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  font-size: .85rem;
+  margin: 1rem 0;
+  border-radius: 50px;
+}
+.tip-wrap {
+  background-color: #ebebeb;
+  padding: 1rem 1rem 1.5rem 1rem;
+  font-size: .8rem;
+}
+.tip-wrap .tip-title {
+  color: #b71010;
+  font-weight: bold;
+  margin: 0;
+  display: block;
+  text-align: center;
+  margin-bottom: .2rem;
+}
+.code-img-wrap{
+  width: 40%;
+  margin: 30rpx auto;
+}
