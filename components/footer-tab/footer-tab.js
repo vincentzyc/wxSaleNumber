@@ -36,7 +36,7 @@ Component({
     },
     toOrder() {
       wx.navigateTo({
-        url: '../order/order',
+        url: '../home/home',
         success: () => {
           this.timer = setTimeout(() => {
             this.onCloseCardTip()
