@@ -1,11 +1,12 @@
 // app.js
 import EventBus from '/event-bus/index.js';
-
+import '/weapp-cookie/index'
 App({
   eventBus: new EventBus(),
   getUserInfo() {
     wx.login({
       success: res => {
+        console.log('登录', res);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId    
         this.globalData.userCode = res.code
       }
@@ -31,6 +32,8 @@ App({
     cmData: null,
     wxPayAccount: null,
     selectNumber: null,
-    submitForm: null
+    submitForm: null,
+    userInfo: {},
+    userPhoneNo:''
   }
 })
