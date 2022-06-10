@@ -1,0 +1,66 @@
+<!--pages/home/home.wxml-->
+<view class="main_wrap">
+  <view class="top-wrap">
+    <view class="userInfo-wrap">
+      <image
+        class="head-img" bindtap="getUserProfile"
+        src="{{userInfo.avatarUrl}}"
+      />
+      <view class="login-wrap">
+        <span>{{userInfo.nickName}}</span>
+        <button open-type="getPhoneNumber" class="login-btn" style="{{showBtn?'':'display:none'}}"
+          bindgetphonenumber="getPhoneNumber">授权</button>
+      </view>
+    </view>
+    <!-- <view class="login-wrap">{{loginStatus}}
+      <button open-type="getPhoneNumber" class="login-btn"
+        bindgetphonenumber="getPhoneNumber" style="{{showBtn?'':'display:none'}}"></button>
+    </view> -->
+  </view>
+  <view class="order-wrap">
+    <text>我的订单</text>
+    <view class="order-item" bindtap="toOrder" data-id="TO_PAY">
+      <image src="/assets/images/to_pay.png" mode="aspectFit"></image>
+      <text>待付款</text>
+    </view>
+    <view class="order-item" bindtap="toOrder" data-id="TO_DELIVER">
+      <image src="/assets/images/to_deliver.png" mode="aspectFit"></image>
+      <text>待收货</text>
+    </view>
+    <view class="order-item" bindtap="toOrder" data-id="TO_ACTIVE">
+      <image src="/assets/images/to_active.png" mode="aspectFit"></image>
+      <text>待激活</text>
+    </view>
+    <view class="order-item" bindtap="toOrder" data-id="FINISH">
+      <image src="/assets/images/finish.png" mode="aspectFit"></image>
+      <text>已完成</text>
+      <!-- <button open-type="getPhoneNumber" class="order-btn" data-id="FINISH"
+        bindgetphonenumber="getPhoneNumber" style="{{showBtn?'':'display:none'}}" >授权</button> -->
+    </view>
+
+  </view>
+  <view class="user-wrap">
+    <text>用户中心</text>
+    <van-cell is-link bindtap="toAllOrderList">
+      <view slot="title" class="cell-title">
+        <image src="/assets/images/order.png" mode="aspectFit"></image>
+        <span class="title">其他订单</span>
+      </view>
+    </van-cell>
+    <van-cell is-link>
+      <view slot="title" class="cell-title" bindtap="toSetAddress">
+        <image src="/assets/images/address.png" mode="aspectFit"></image>
+        <span class="title">配送地址</span>  
+        <!-- <button open-type="getPhoneNumber" style="{{showBtn?'':'display:none'}}" class="cell-title-btn"
+        bindgetphonenumber="getPhoneNumber">授权</button> -->
+      </view>
+    </van-cell>
+    <van-cell is-link>
+      <view slot="title" class="cell-title" bindtap="toService">
+        <image src="/assets/images/to_service.png" mode="aspectFit"></image>
+        <span class="title">联系我们</span>
+      </view>
+    </van-cell>
+  </view>
+  <!-- <number-tabbar activeTabbar="{{activeTabbar}}"></number-tabbar> -->
+</view>

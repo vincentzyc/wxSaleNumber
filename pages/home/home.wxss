@@ -1,0 +1,97 @@
+/* pages/home/home.wxss */
+.main_wrap {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  position: relative;
+}
+.top-wrap {
+  background-color: #b71010;
+  height: 10rem;
+  margin-bottom: -3rem;
+}
+.head-img {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50px;
+  border: 2px solid #fff;
+  margin-right: 1rem;
+}
+.userInfo-wrap {
+  padding: 1.8rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.order-wrap, .user-wrap{
+  width: 90%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1rem 0;
+}
+.order-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: .8rem;
+}
+.order-wrap text:first-child, .user-wrap text:first-child {
+  width: 100%;
+  padding-left: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: .55rem;
+}
+.order-wrap .order-item {
+  /* width: 5rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 3.5rem; */
+  /* position: relative; */
+}
+.order-wrap .order-item image{
+  width: 2rem;
+  height: 3rem;
+}
+.order-item text {
+  text-align: center;
+  font-size: .85rem;
+}
+.user-wrap image {
+  width: 1.3rem;
+  height: 2rem;
+  margin-right: .3rem;
+}
+.cell-title {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.cell-title span {
+  font-size: .85rem;
+}
+.login-btn {
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-size: .85rem;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+
+  height: 1.5rem;
+  top: 0;
+}
+.order-item .order-btn {
+  height: 3.5rem;
+}
+.login-wrap {
+  position: relative;
+}
