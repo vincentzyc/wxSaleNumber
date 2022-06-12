@@ -1,0 +1,16 @@
+<!--pages/addressForm/addressForm.wxml-->
+<view class="main_wrap">
+  <view class="form-wrap">
+    <van-cell-group>
+      <van-field value="{{ form.selectCity }}" label="配送城市：" title-width="6em" placeholder="请输入您的收货城市"  left-icon="location-o" placeholder-style="color:#999" input-align="right" label-align="right">
+        <view slot="input" class="flex justify-end widthfull" >
+          <city-picker bindgetcity="onGetCity" id="cityPicker"></city-picker>
+        </view>
+      </van-field>
+      <van-field value="{{ form.address }}" cursor-spacing="100" label="详细地址：" title-width="6em" placeholder="请输入详细地址" left-icon="map-marked" input-align="right" placeholder-style="color:#999" bind:change="onChangeAddress" maxlength="50" type="textarea" autosize/>
+      <van-field value="{{ form.name }}" label="联系人姓名：" cursor-spacing="100" title-width="6em" placeholder="请输入联系人的姓名" left-icon="contact" maxlength="10" input-align="right" placeholder-style="color:#999" bind:change="onChangeName" maxlength="10" />
+      <van-field value="{{ form.contactNo }}" type="number" cursor-spacing="100" label="联系人电话：" maxlength="11" title-width="6em" placeholder="请输入联系人的电话" left-icon="phone-o"placeholder-style="color:#999" input-align="right" bind:change="onChangePhone" />
+    </van-cell-group>
+  </view>
+  <view class="submit-btn" bindtap="submit">保存收货地址</view>
+</view>
