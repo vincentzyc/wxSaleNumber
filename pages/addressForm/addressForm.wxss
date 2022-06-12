@@ -1,0 +1,32 @@
+/* pages/addressForm/addressForm.wxss */
+.main_wrap {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  position: relative;
+}
+.form-wrap {
+  width: 90%;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: .5rem;
+  box-sizing: border-box;
+  border-radius: 10px;
+  position: relative;
+  top: 1rem;
+}
+.main_wrap .van-icon {
+  color: #b71010;
+}
+.main_wrap .submit-btn {
+  color: #fff;
+  background-color: #b71010;
+  width: 90%;
+  position: absolute;
+  border-radius: 20px;
+  height: 2.5rem;
+  bottom: 5rem;
+  left: 4%;
+  text-align: center;
+  line-height: 2.5rem;
+}
