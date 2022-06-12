@@ -1,0 +1,34 @@
+<!--pages/orderCenter/orderCenter.wxml-->
+<view class="main_wrap">
+  <view>
+    <van-tabs active="{{ orderActive }}" bind:change="activeChange" color="#b71010">
+      <van-tab wx:for="{{typeList}}" wx:key="id"  title="{{item.title}}" name="{{item.id}}">
+        <view wx:if="{{orderList.length>0}}" style="padding: 1rem 0;">
+          <view class="block_wrap" wx:for="{{orderList}}" wx:key="orderCode" bindtap="toDetail" data-order-item="{{item}}">
+            <view class="block-left">
+              <view class="num-char">
+                <view class="num-char-phone">{{item.handleNo}}</view>
+                <span class="num-char-state">{{item.collectStatusKey}}</span>
+                <span class="num-char-activestate" wx:if="{{item.activeStatus!==null}}">{{item.activeStatus}}</span>
+              </view>
+              <view class="info-line mg-b5">
+                <view class="flex-none">下单时间：</view>
+                <view class="info-line-text">{{item.createTime}}</view>
+              </view>
+              <view class="info-line">
+                <view class="flex-none">订单编号：</view>
+                <view class="info-line-text">{{item.orderCode}}</view>
+                <view class="block-right">
+                  <view class="view-detail color-red">查看明细 ></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="text-center mg-t10" wx:else>
+          暂无订单
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>
