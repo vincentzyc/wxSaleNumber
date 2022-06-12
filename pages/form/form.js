@@ -30,6 +30,11 @@ Page({
   onLoad() {
     const selectNum = app.getGlobal('selectNumber')
     if (selectNum) this.setData({ selectNum: selectNum })
+    //获取默认收货地址
+    let phoneNumber = app.getGlobal('userPhoneNo')
+    if(phoneNumber) {
+      this.getAddress(phoneNumber)
+    }
   },
   onChangeName(event) {
     this.data.form.name = event.detail
@@ -109,6 +114,23 @@ Page({
         icon: 'none',
         duration: 2000
       })
+    }
+  },
+  //获取默认收货地址
+  async getAddress(phoneNumber) {
+    let res = await Api.Junpin.getAddress({phoneNumber})
+    if(res) {
+      let data = res
+      let selectCity = [data.province, data.city, data.district]
+      this.setData({
+        ['form.name']: data.consignee,
+        ['form.address']: data.address,
+        ['form.contactNo']: data.phone,
+        ['form.selectCity']: selectCity,
+      })
+      this.selectComponent('#cityPicker').setMultiArr(selectCity)
+      this.selectComponent('#cityPicker').pickerChange()
+      console.log(this.data.form);
     }
   }
 })
