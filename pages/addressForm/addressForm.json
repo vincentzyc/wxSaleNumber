@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-field": "@vant/weapp/field/index",
+    "city-picker": "/components/city-picker/city-picker"
+  }
+}
