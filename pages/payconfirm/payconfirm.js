@@ -135,16 +135,16 @@ Page({
   onLoad: function (options) {
     const selectNum = app.getGlobal('selectNumber')
     const submitForm = app.getGlobal('submitForm')
-    const userCode = app.getGlobal('userCode')
+    // const userCode = app.getGlobal('userCode')
     if (selectNum) this.setData({ selectNum: selectNum })
     if (submitForm) this.setData({ submitForm: submitForm })
     if (options.orderCode) this.setData({ orderCode: options.orderCode })
-    if (userCode) {
-      this.setData({ userCode: userCode })
-    } else {
-      wx.login({
-        success: res => this.setData({ userCode: res.code })
-      })
-    }
+    // if (userCode) {
+    //   this.setData({ userCode: userCode })
+    // } else {
+    // }
+    wx.login({
+      success: res => this.setData({ userCode: res.code })
+    })
   }
 })
