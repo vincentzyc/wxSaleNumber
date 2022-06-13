@@ -1,0 +1,13 @@
+/* components/tabbar/tabbar.wxss */
+.tabbar-wrap {
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+}
+.tabbar-wrap .tabbar-item p{
+  margin-top: .3rem;
+  font-size: .8rem;
+  color: rgb(160, 160, 160);
+}

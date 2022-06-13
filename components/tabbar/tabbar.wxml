@@ -1,0 +1,22 @@
+<!--components/tabbar/tabbar.wxml-->
+<view class="tabbar-wrap">
+  <van-grid clickable :column-num="4" style="width:100%" :border="false">
+    <van-grid-item use-slot class="tabbar-item" bind:click="changeTabbar" data-id="number">
+      <van-icon size="20px" name="home-o" color="{{activeTabbar=='number'?'#AD0000':'#a0a0a0'}}">
+      </van-icon>
+      <p style="{{activeTabbar=='number'?'color: #AD0000':''}}">靓号甄选</p>
+    </van-grid-item>
+    <van-grid-item use-slot class="tabbar-item"  bind:click="changeTabbar" data-id="location">
+      <van-icon size="20px" name="location-o" color="{{activeTabbar=='cart'?'#AD0000':'#a0a0a0'}}" ></van-icon>
+      <p style="{{activeTabbar=='location'?'color: #AD0000':''}}">靓号甄选</p>
+    </van-grid-item>
+    <van-grid-item use-slot class="tabbar-item" bind:click="changeTabbar" data-id="records">
+        <van-icon size="20px" name="records" color="{{activeTabbar=='records'?'#AD0000':'#a0a0a0'}}" ></van-icon>
+        <p style="{{activeTabbar=='records'?'color: #AD0000':''}}">购卡须知</p>
+    </van-grid-item>
+    <van-grid-item use-slot class="tabbar-item" bind:click="changeTabbar" data-id="home">
+        <van-icon size="20px" name="user-o" color="{{activeTabbar=='home'?'#AD0000':'#a0a0a0'}}" ></van-icon>
+        <p style="{{activeTabbar=='home'?'color: #AD0000':''}}">个人中心</p>
+    </van-grid-item>
+  </van-grid>
+</view>
