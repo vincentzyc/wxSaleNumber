@@ -2,6 +2,7 @@
   "usingComponents": {
     "jun-number-list": "/components/number-list/number-list",
     "footer-tab": "/components/footer-tab/footer-tab",
-    "van-icon": "@vant/weapp/icon/index"
+    "van-icon": "@vant/weapp/icon/index",
+    "number-tabbar": "/components/tabbar/tabbar"
   }
 }
