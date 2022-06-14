@@ -6,7 +6,10 @@
     "pages/orderdetail/orderdetail",
     "pages/form/form",
     "pages/webview/webview",
-    "pages/payconfirm/payconfirm"
+    "pages/payconfirm/payconfirm",
+    "pages/home/home",
+    "pages/orderCenter/orderCenter",
+    "pages/addressForm/addressForm"
   ],
   "window": {
     "backgroundTextStyle": "light",
