@@ -8,14 +8,14 @@ export const createInterface = (arr, baseUrl) => {
     Interface[v.name] = (param, config) => {
       return new Promise((resolve, reject) => {
         const formatUrl = v.url.includes('http://') || v.url.includes('https://') ? v.url : baseUrl + v.url
-        if(formatUrl.includes('/www.junpinclub')) {
+        if (formatUrl.includes('junpin.junpinclub')) {
           Api.junpinRequest({
             url: formatUrl,
             data: param,
-            method: v.type === 'post'? 'POST':'GET',
+            method: v.type === 'post' ? 'POST' : 'GET',
             getAllData: v.getAllData
           }).then(res => resolve(res)).catch(error => reject(error))
-        }else {
+        } else {
           v.type === 'get' ? Api.wxGet(formatUrl + param, { getAllData: v.getAllData, config }).then(res => resolve(res))
             : Api.wxPost({
               url: formatUrl,
@@ -127,7 +127,7 @@ export const Api = {
     })
   },
   junpinRequest(config) {
-    return new Promise((resolve,reject) => {
+    return new Promise((resolve, reject) => {
       var header = {
         'content-type': 'application/json; charset=utf-8',
         'cookie': wx.getStorageSync("sessionid") //读取本地保存好的上一次cookie
@@ -141,7 +141,7 @@ export const Api = {
           var cookie = res.header["Set-Cookie"];
           if (cookie != null) {
             wx.setStorageSync("sessionid", res.header["Set-Cookie"]);//服务器返回的Set-Cookie，保存到本地
-          } 
+          }
           if (res.statusCode !== 200) {
             wx.hideLoading();
             wx.showModal({
@@ -151,7 +151,7 @@ export const Api = {
             return
           }
           let result = res.data;
-          console.log(config,result)
+          console.log(config, result)
           if (config.getAllData) return resolve(result);
           switch (result.code) {
             case 1: //  成功
