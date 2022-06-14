@@ -6,7 +6,7 @@
 }
 .back-top {
 	position: fixed;
-	bottom: 200rpx;
+	bottom: 180rpx;
 	right: 30rpx;
 	width: 66rpx;
 	height: 66rpx;
@@ -15,5 +15,9 @@
 	text-align: center;
 	line-height: 66rpx;
 	transition: 0.3s;
-  z-index: 9;
+	z-index: 9;
+}
+.back-top image {
+	width: 60rpx;
+	height: 60rpx;
 }
