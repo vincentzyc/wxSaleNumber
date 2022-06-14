@@ -5,7 +5,8 @@
   </view>
   <jun-number-list></jun-number-list>
   <footer-tab></footer-tab>
+  <!-- <number-tabbar activeTabbar="{{activeTabbar}}"></number-tabbar> -->
   <view bindtap="back2top" class="back-top" hidden="{{hiddenBackTop}}">
-    <van-icon name="back-top" />
+    <image src="../../assets/images/backTop.png"></image>
   </view>
 </view>
