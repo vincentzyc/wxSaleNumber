@@ -22,7 +22,7 @@
         {
           "name": "",
           "pathName": "pages/index/index",
-          "query": "pid=26058&test=haha",
+          "query": "id=22021413521900007&pid=26058&test=haha",
           "scene": null,
           "launchMode": "default"
         },
@@ -44,6 +44,27 @@
           "name": "",
           "pathName": "pages/orderlist/orderlist",
           "query": "phone=15622122628",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/home/home",
+          "query": "orderType=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/orderCenter/orderCenter",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/addressForm/addressForm",
+          "query": "",
           "launchMode": "default",
           "scene": null
         }
