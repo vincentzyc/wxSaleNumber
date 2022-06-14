@@ -5,6 +5,7 @@ const app = getApp()
 
 Page({
   data: {
+    activeTabbar: 'number',
     bannerUrl: '',
     hiddenBackTop: true
   },
